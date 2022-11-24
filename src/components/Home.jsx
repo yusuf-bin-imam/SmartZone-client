@@ -1,49 +1,79 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import About from "./About";
 
 const Home = () => {
   return (
-    <div>
-      <section>
-        <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
-          <div className="flex flex-wrap items-center mx-auto max-w-7xl">
-            <div className="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
-              <div>
-                <div className="relative w-full max-w-lg">
-                  <div className="absolute top-0 rounded-full bg-violet-300 -left-4 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-
-                  <div className="absolute rounded-full bg-fuchsia-300 -bottom-24 right-20 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-                  <div className="relative">
-                    <img
-                      data-aos="fade-right"
-                      data-aos-duration="3000"
-                      className="object-cover object-center mx-auto rounded-lg shadow-2xl"
-                      alt="hero"
-                      src="https://img.freepik.com/free-photo/portrait-smiling-young-girl-using-mobile-phone_171337-1627.jpg?w=1060&t=st=1669224128~exp=1669224728~hmac=2bc8f03b3ca912c13bd2f20ee8408fcf661a4ed4a06ce5f93538e6dee137675d"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              data-aos="fade-up"
-              data-aos-duration="3000"
-              className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0"
-            >
-              <span className="mb-8 text-xs font-bold tracking-widest text-blue-600 uppercase">
-                {" "}
-                Hello sir..
+    <div className="bg-white">
+      <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="3000"
+          className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0"
+        >
+          <svg
+            className="absolute left-0 hidden h-full text-white transform -translate-x-1/2 lg:block"
+            viewBox="0 0 100 100"
+            fill="currentColor"
+            preserveAspectRatio="none slice"
+          >
+            <path d="M50 0H100L50 100H0L50 0Z" />
+          </svg>
+          <img
+            className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
+            src="https://img.freepik.com/free-vector/app-development-illustration_52683-47931.jpg?w=1060&t=st=1669235098~exp=1669235698~hmac=5879f9918be4668b531ceb84414182b3d71f3fe13fef401bd3baa257b1129dcc"
+            alt=""
+          />
+        </div>
+        <div
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl"
+        >
+          <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
+            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+              Hey Sir
+            </p>
+            <h2 className="mb-5  text-teal-900 font-sans text-3xl font-bold tracking-tight  sm:text-4xl sm:leading-none">
+              Everything you
+              <br className="hidden md:block" />
+              can imagine{" "}
+              <span className="inline-block text-deep-purple-accent-400">
+                is real
               </span>
-              <h1 className="mb-8 text-4xl font-bold leading-none tracking-tighter text-neutral-600 md:text-7xl lg:text-5xl">
-                Are you looking for used phone ??
-              </h1>
-              <p className="mb-8 font-bold text-base leading-relaxed text-left text-gray-500">
-                Get your dream phone from us...!! Full fresh and new conditions
-                in a resonable price...!!!
-              </p>
-            </div>{" "}
+            </h2>
+            <p className="pr-5 mb-5 font-semibold text-gray-700 md:text-lg">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae. explicabo.
+            </p>
+            <div className="flex  items-center">
+              <Link
+                className="group relative inline-block overflow-hidden border border-teal-600 px-8 py-3 focus:outline-none focus:ring"
+                href="/download"
+              >
+                <span className="absolute inset-y-0 left-0 w-[2px] bg-teal-600 transition-all group-hover:w-full group-active:bg-teal-500"></span>
+
+                <span className="relative text-sm font-medium text-teal-600 transition-colors group-hover:text-white">
+                  Buy Now
+                </span>
+              </Link>
+              <Link
+                to={"/about"}
+                className=" ml-5 group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"
+                href="/download"
+              >
+                <span className="absolute inset-x-0 bottom-0 h-[2px] bg-indigo-600 transition-all group-hover:h-full group-active:bg-indigo-500"></span>
+
+                <span className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">
+                  About Us
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+      <About />
     </div>
   );
 };
