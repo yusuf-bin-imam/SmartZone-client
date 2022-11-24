@@ -23,14 +23,19 @@ const Navigation = () => {
               alt=""
             />
             <span className="ml-3 text-teal-600 font-serif text-3xl xl:block lg:hidden">
-              <strong>SmartZone</strong>
+              <Link to={"/"}>
+                <strong>SmartZone</strong>
+              </Link>
             </span>
           </Link>
-          <div className="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+          <div className="lg:w-2/5 inline-flex lg:justify-end  ml-5 lg:ml-0">
             <Link to={"/login"}>
-              <button className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">
+              <button className="btn btn-outline mr-3 btn-primary">
                 Sign In
               </button>
+            </Link>
+            <Link to={"/register"}>
+              <button className="btn btn-outline btn-secondary">Sign Up</button>
             </Link>
           </div>
         </div>

@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
-      <footer aria-label="Site Footer" className="bg-white border-t-2">
-        <div className="max-w-screen-xl px-4 pt-16 pb-8 mx-auto sm:px-6 lg:px-8 lg:pt-24">
+    <div className="mt-40">
+      <footer aria-label="Site Footer" className="bg-black ">
+        <div className="max-w-screen-xl px-4 pt-16 pb-8 mx-auto sm:px-6 lg:px-8 lg:pt-12">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-teal-900 sm:text-5xl">
               SmartZone
             </h2>
 
             <p className="max-w-sm mx-auto font-bold mt-4 text-blue-500">
-              Get Trusted , reliable & best service warrenty from us
+              Trusted , reliable & best service warrenty ever
             </p>
 
             <Link

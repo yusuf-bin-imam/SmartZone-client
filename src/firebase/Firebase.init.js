@@ -5,14 +5,13 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAy2fdbCcbDY7gHGgnzsQTDnjQyLS-iKAE",
-  authDomain: "smartzone-bb172.firebaseapp.com",
-  projectId: "smartzone-bb172",
-  storageBucket: "smartzone-bb172.appspot.com",
-  messagingSenderId: "855469195076",
-  appId: "1:855469195076:web:38d10bdb9052442c68a111",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export default app;

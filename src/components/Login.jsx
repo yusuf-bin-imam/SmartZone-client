@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
@@ -31,6 +30,7 @@ const Login = () => {
                     type="text"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     id="exampleFormControlInput2"
+                    required
                     placeholder="Email address"
                   />
                 </div>
@@ -42,26 +42,23 @@ const Login = () => {
                     type="password"
                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     id="exampleFormControlInput2"
+                    required
                     placeholder="Password"
                   />
                 </div>
 
                 <div className="flex justify-between items-center mb-6">
-                  <p className="text-sm font-semibold mt-2 pt-1 mb-0">
+                  <p className="text-sm  font-semibold mt-2 pt-1 mb-0">
                     No Account ?
                     <Link
                       to={"/register"}
                       className="text-red-600 hover:text-green-700 focus:text-green-700 transition duration-200 ease-in-out"
                     >
                       {" "}
-                      Create New Account
+                      Sign Up
                     </Link>
                   </p>
-                  <a href="#!" className="text-gray-800">
-                    Forgot password?
-                  </a>
                 </div>
-
                 <div className="text-center">
                   <button
                     type="submit"
@@ -79,7 +76,7 @@ const Login = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Google {""} <FaGoogle />
+                Google {""} <FaGoogle className="ml-3" />
               </Link>
             </div>
           </div>
