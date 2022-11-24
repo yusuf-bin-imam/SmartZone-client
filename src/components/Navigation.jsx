@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { authContext } from "../context/AuthProvider";
 
 const Navigation = () => {
+  const { user, logOut } = useContext(authContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((e) => console.error(e));
+  };
   return (
     <div className="">
       <header className="text-gray-400  rounded bg-gray-900 body-font">
@@ -29,14 +37,29 @@ const Navigation = () => {
             </span>
           </Link>
           <div className="lg:w-2/5 inline-flex lg:justify-end  ml-5 lg:ml-0">
-            <Link to={"/login"}>
-              <button className="btn btn-outline mr-3 btn-primary">
-                Sign In
-              </button>
-            </Link>
-            <Link to={"/register"}>
-              <button className="btn btn-outline btn-secondary">Sign Up</button>
-            </Link>
+            {user?.uid ? (
+              <Link to={""}>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-outline mr-3 btn-error"
+                >
+                  Signout
+                </button>
+              </Link>
+            ) : (
+              <div>
+                <Link to={"/login"}>
+                  <button className="btn mr-3 btn-outline  btn-primary">
+                    Sign in
+                  </button>
+                </Link>
+                <Link to={"/register"}>
+                  <button className="btn btn-outline btn-secondary">
+                    Sign Up
+                  </button>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </header>
