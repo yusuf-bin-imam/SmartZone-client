@@ -4,12 +4,13 @@ import { FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { authContext } from "../context/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const notify = () => toast("Here is your toast.");
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
-  const { signIn } = useContext(authContext);
+  const { signIn, providerLogin } = useContext(authContext);
   const [error, setError] = useState();
 
   const handleLogin = (data) => {
@@ -23,7 +24,16 @@ const Login = () => {
       })
       .catch((error) => setError(error.message));
   };
+  const googleProvider = new GoogleAuthProvider();
 
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((r) => {
+        const user = r.user;
+        console.log(user);
+      })
+      .catch((e) => console.error(e));
+  };
   return (
     <div>
       <section className="h-screen">
@@ -31,12 +41,18 @@ const Login = () => {
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
             <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
               <img
+                data-aos="fade-right"
+                data-aos-duration="3000"
                 src="https://assets.materialup.com/uploads/eb1baad5-6d53-4970-9ac4-bd0d88c6e0a8/preview.gif"
                 className="w-full"
                 alt="Sample image"
               />
             </div>
-            <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="3000"
+              className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0"
+            >
               <form onSubmit={handleSubmit(handleLogin)}>
                 {/* <!-- Email input --> */}
                 <div className="mb-6">
@@ -49,7 +65,6 @@ const Login = () => {
                     placeholder="Email address"
                   />
                 </div>
-
                 {/* <!-- Password input --> */}
                 <div className="mb-6">
                   <input
@@ -61,7 +76,6 @@ const Login = () => {
                     placeholder="Password"
                   />
                 </div>
-
                 <div className="flex justify-between items-center mb-6">
                   <p className="text-sm  font-semibold mt-2 pt-1 mb-0">
                     No Account ?
@@ -84,19 +98,16 @@ const Login = () => {
                   </button>
                   {error && <p className="text-red-600">{error}</p>}
                 </div>
-
-                <div></div>
+                <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
+                  <p className="text-center font-semibold mx-4 mb-0">Or</p>
+                </div>{" "}
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="btn btn-outline  btn-success mt-3"
+                >
+                  Google {""} <FaGoogle className="ml-3" />
+                </button>
               </form>
-              <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-                <p className="text-center font-semibold mx-4 mb-0">Or</p>
-              </div>{" "}
-              <Link
-                className="btn btn-outline  btn-success mt-3"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Google {""} <FaGoogle className="ml-3" />
-              </Link>
             </div>
           </div>
         </div>

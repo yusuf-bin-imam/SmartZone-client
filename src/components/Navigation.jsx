@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { authContext } from "../context/AuthProvider";
 
@@ -37,6 +38,15 @@ const Navigation = () => {
             </span>
           </Link>
           <div className="lg:w-2/5 inline-flex lg:justify-end  ml-5 lg:ml-0">
+            {user?.photoURL ? (
+              <img
+                className="mr-3 rounded-full w-12 shadow-lg"
+                src={user.photoURL}
+                alt=""
+              />
+            ) : (
+              <FaUser className="mt-1 mr-3 bg-black rounded-full w-10 h-10" />
+            )}
             {user?.uid ? (
               <Link to={""}>
                 <button

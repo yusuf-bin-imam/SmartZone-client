@@ -2,10 +2,13 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { authContext } from "../context/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
-  const { createUser } = useContext(authContext);
+
+  const { createUser, providerLogin } = useContext(authContext);
   const handleRegister = (data) => {
     console.log(data);
     createUser(data.email, data.password)
@@ -15,9 +18,19 @@ const Register = () => {
       })
       .catch((error) => console.log(error));
   };
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
-      <section>
+      <section data-aos="zoom-in-up" data-aos-duration="3000">
         <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
           <div className="justify-center mx-auto text-left align-bottom transition-all transform bg-white rounded-lg sm:align-middle sm:max-w-2xl sm:w-full">
             <div className="grid flex-wrap items-center justify-center grid-cols-1 mx-auto shadow-xl lg:grid-cols-2 rounded-xl">
@@ -85,29 +98,30 @@ const Register = () => {
                         Sign up
                       </button>
                     </div>{" "}
+                    <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
+                      <p className="text-center font-semibold mx-4 mb-0">Or</p>
+                    </div>
+                    <p className="text-sm font-semibold mt-2 pt-1 mb-0">
+                      Already have an Account ?
+                      <Link
+                        to={"/login"}
+                        className="text-red-600 hover:text-green-700 focus:text-green-700 transition duration-200 ease-in-out"
+                      >
+                        {" "}
+                        Sign In
+                      </Link>
+                    </p>
+                    <button
+                      onClick={handleGoogleSignIn}
+                      className="btn btn-outline btn-success ml-24 mt-3"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Link>Google</Link>
+                      <FaGoogle className="ml-3" />
+                    </button>
                   </form>
-                  <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-                    <p className="text-center font-semibold mx-4 mb-0">Or</p>
-                  </div>
                 </div>
-
-                <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                  Already have an Account ?
-                  <Link
-                    to={"/login"}
-                    className="text-red-600 hover:text-green-700 focus:text-green-700 transition duration-200 ease-in-out"
-                  >
-                    {" "}
-                    Sign In
-                  </Link>
-                </p>
-                <Link
-                  className="btn btn-outline btn-success ml-24 mt-3"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Google
-                </Link>
               </div>
               <div className="order-first  w-full lg:block">
                 <img
