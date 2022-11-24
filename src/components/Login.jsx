@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import { authContext } from "../context/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = () => toast("Here is your toast.");
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
+  const { signIn } = useContext(authContext);
+  const [error, setError] = useState();
+
   const handleLogin = (data) => {
     console.log(data);
+
+    setError(" ");
+    signIn(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => setError(error.message));
   };
 
   return (
@@ -61,12 +76,16 @@ const Login = () => {
                 </div>
                 <div className="text-center">
                   <button
+                    onClick={notify}
                     type="submit"
                     className="inline-block px-7 py-3 w-44 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                   >
                     Login
                   </button>
+                  {error && <p className="text-red-600">{error}</p>}
                 </div>
+
+                <div></div>
               </form>
               <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                 <p className="text-center font-semibold mx-4 mb-0">Or</p>

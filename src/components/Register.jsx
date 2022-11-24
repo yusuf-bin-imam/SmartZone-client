@@ -94,7 +94,7 @@ const Register = () => {
                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
                   Already have an Account ?
                   <Link
-                    to={"/register"}
+                    to={"/login"}
                     className="text-red-600 hover:text-green-700 focus:text-green-700 transition duration-200 ease-in-out"
                   >
                     {" "}
