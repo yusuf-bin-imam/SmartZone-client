@@ -13,7 +13,7 @@ const Navigation = () => {
             <Link className="mr-5 hover:text-teal-500">Second Link</Link>
             <Link className="mr-5 hover:text-teal-500">Third Link</Link>
             <Link to={"/blog"} className="hover:text-teal-500">
-              Blog
+              Blogs
             </Link>
           </nav>
           <Link className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-white lg:items-center lg:justify-center mb-4 md:mb-0">
