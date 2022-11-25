@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Blog = () => {
   return (
-    <div>
+    <div data-aos="fade-right" data-aos-duration="3000">
       <article
         data-aos="zoom-out-left"
         className="rounded-lg border text-start   border-b-teal-600 border-b-4  p-4 shadow-sm transition hover:shadow-lg sm:p-6"

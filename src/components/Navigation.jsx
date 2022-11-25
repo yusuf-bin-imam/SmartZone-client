@@ -21,6 +21,9 @@ const Navigation = () => {
             </Link>
             <Link className="mr-5 hover:text-teal-500">Second Link</Link>
             <Link className="mr-5 hover:text-teal-500">Third Link</Link>
+            <Link to={"/dashboard"} className="mr-5 hover:text-teal-500">
+              Dashboard
+            </Link>
             <Link to={"/blog"} className="hover:text-teal-500">
               Blogs
             </Link>
