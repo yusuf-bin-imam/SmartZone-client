@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { authContext } from "../context/AuthProvider";
@@ -12,6 +12,10 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const { signIn, providerLogin } = useContext(authContext);
   const [error, setError] = useState();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (data) => {
     console.log(data);
@@ -21,6 +25,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => setError(error.message));
   };
