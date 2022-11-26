@@ -1,0 +1,19 @@
+[
+  {
+    "categoryId": "Apple-devices",
+    "category": "Apple",
+    "img": "https://media.cnn.com/api/v1/images/stellar/prod/180927122050-apple-logo-gfx.jpg?q=w_3000,h_2250,x_0,y_0,c_fill"
+  },
+
+  {
+    "categoryId": "Samsung-devices",
+    "category": "Samsung",
+    "img": "https://pbs.twimg.com/profile_images/1579275564111699968/F1t8oJUv_400x400.jpg"
+  },
+
+  {
+    "categoryId": "Xiaomi-devices",
+    "category": "Xiaomi",
+    "img": "https://fdn.gsmarena.com/imgroot/news/21/03/xiaomi-new-logo/-1200/gsmarena_004.jpg"
+  }
+]

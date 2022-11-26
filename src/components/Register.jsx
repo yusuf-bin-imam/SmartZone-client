@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { authContext } from "../context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   const { createUser, updateUserProfile, providerLogin } =
@@ -162,8 +162,8 @@ const Register = () => {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <Link>Google</Link>
-                      <FaGoogle className="ml-3" />
+                      <Link className="font-bold">Google</Link>
+                      <FcGoogle className="ml-2" />
                     </button>
                   </form>
                 </div>

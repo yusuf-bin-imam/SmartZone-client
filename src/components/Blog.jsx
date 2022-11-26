@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Blog = () => {
   return (
-    <div data-aos="fade-right" data-aos-duration="3000">
+    <div data-aos="flip-right" data-aos-duration="3000">
       <article
         data-aos="zoom-out-left"
         className="rounded-lg border text-start   border-b-teal-600 border-b-4  p-4 shadow-sm transition hover:shadow-lg sm:p-6"
@@ -83,10 +83,7 @@ const Blog = () => {
           reference/link to this prototype.
         </p>
       </article>
-      <article
-        data-aos="fade-up"
-        className="rounded-lg border text-start border-b-teal-600 border-b-4  p-4 shadow-sm transition hover:shadow-lg sm:p-6"
-      >
+      <article className="rounded-lg border text-start border-b-teal-600 border-b-4  p-4 shadow-sm transition hover:shadow-lg sm:p-6">
         <span className="inline-block rounded bg-blue-600 p-2 text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -120,10 +117,7 @@ const Blog = () => {
           use this.
         </p>
       </article>
-      <article
-        data-aos="fade-right"
-        className="rounded-lg border text-start  border-b-teal-800 border-b-4  p-4 shadow-sm transition hover:shadow-lg sm:p-6"
-      >
+      <article className="rounded-lg border text-start  border-b-teal-800 border-b-4  p-4 shadow-sm transition hover:shadow-lg sm:p-6">
         <span className="inline-block rounded bg-blue-600 p-2 text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import About from "./About";
+import Category from "./Category";
 
 const Home = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
+  console.log(categories);
+
   return (
     <div className="bg-white">
       <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
@@ -21,7 +31,7 @@ const Home = () => {
           </svg>
           <img
             className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-            src="https://img.freepik.com/free-vector/app-development-illustration_52683-47931.jpg?w=1060&t=st=1669235098~exp=1669235698~hmac=5879f9918be4668b531ceb84414182b3d71f3fe13fef401bd3baa257b1129dcc"
+            src="https://i.pinimg.com/originals/70/7c/39/707c39bfff546612b5b4604fe86cda32.gif"
             alt=""
           />
         </div>
@@ -72,6 +82,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <Category categories={categories} />
       <About />
     </div>
   );

@@ -81,8 +81,17 @@ const Login = () => {
                     placeholder="Password"
                   />
                 </div>
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="inline-block px-7 py-3 w-44 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                  >
+                    Login
+                  </button>
+                  {error && <p className="text-red-600">{error}</p>}
+                </div>{" "}
                 <div className="flex justify-between items-center mb-6">
-                  <p className="text-sm  font-semibold mt-2 pt-1 mb-0">
+                  <p className="text-sm text-center font-semibold mt-2 pt-1 mb-0">
                     No Account ?
                     <Link
                       to={"/register"}
@@ -92,16 +101,6 @@ const Login = () => {
                       Sign Up
                     </Link>
                   </p>
-                </div>
-                <div className="text-center">
-                  <button
-                    onClick={notify}
-                    type="submit"
-                    className="inline-block px-7 py-3 w-44 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                  >
-                    Login
-                  </button>
-                  {error && <p className="text-red-600">{error}</p>}
                 </div>
                 <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
                   <p className="text-center font-semibold mx-4 mb-0">Or</p>
