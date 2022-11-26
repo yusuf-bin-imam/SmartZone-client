@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = ({ product }) => {
+const Product = ({ product, setDevice }) => {
   const {
     resalePrice,
     name,
@@ -49,13 +49,13 @@ const Product = ({ product }) => {
               location : {location}
             </p>
           </div>
-          {/* <a
-            href="/"
-            aria-label=""
-            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+          <label
+            onClick={() => setDevice(product)}
+            htmlFor="Booking-modal"
+            className="btn-success px-24 btn"
           >
-            Learn more
-          </a> */}
+            Book now
+          </label>
         </div>
       </div>
     </div>
