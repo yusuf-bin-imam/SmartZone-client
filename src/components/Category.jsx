@@ -19,7 +19,7 @@ const Category = ({ categories }) => {
           <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-red-900 uppercase rounded-full bg-teal-accent-400">
             Category
           </p>
-          <div className=" mt-4 justify-between -m-4 text-center">
+          <div className=" mt-4 justify-between -m-4  text-center">
             {categories.map((category) => (
               <CategoryDevices key={category.categoryId} category={category} />
             ))}
