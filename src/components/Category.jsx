@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { FaApple } from "react-icons/fa";
-import { SiXiaomi, SiSamsung } from "react-icons/si";
+
 import CategoryDevices from "./CategoryDevices";
 
 const Category = ({ categories }) => {
-  // const [data, setData] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/products")
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // }, []);
   return (
     <div className="">
       <section className="text-gray-600 body-font">

@@ -5,25 +5,43 @@ import toast, { Toaster } from "react-hot-toast";
 const BookingModal = ({ device, setDevice }) => {
   // console.log(device);
   const { user } = useContext(authContext);
-  const { name, resalePrice } = device;
+
+  const { name, img, _id, resalePrice } = device;
 
   const handleBooking = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    const userName = form.name.value;
     const email = form.email.value;
-    const device = form.device.value;
+    // const device = form.device.value;
     const price = form.price.value;
     const phone = form.phone.value;
     const location = form.location.value;
+
     const booking = {
-      user: name,
-      name,
+      userName,
+      deviceName: name,
+      location,
+      price,
       email,
       phone,
     };
-    console.log(booking);
-    setDevice(null);
+    // console.log(booking);
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          setDevice(null);
+          toast.success("Your booking is successfully confirmed");
+        }
+      });
   };
   return (
     <div>
@@ -43,29 +61,32 @@ const BookingModal = ({ device, setDevice }) => {
                 name="name"
                 type="text"
                 value={user.displayName}
+                disabled
                 className="input mt-2 input-bordered input-info w-full max-w-xs"
               />
               <input
                 type="text"
                 name="email"
                 value={user.email}
+                disabled
                 placeholder="Email Address"
                 className="input mt-2 input-bordered input-info w-full max-w-xs"
               />
               <input
                 type="text"
-                name="price"
-                value={name}
-                className="input mb-2 input-bordered input-info w-full max-w-xs"
+                name="image"
+                value={img}
+                disabled
+                className="input mt-2 input-bordered input-info w-full max-w-xs"
               />
               <input
                 type="text"
-                name="device"
+                name="price"
                 value={resalePrice}
+                disabled
                 className="input mb-2 mt-2 input-bordered input-info w-full max-w-xs"
               />
             </div>
-
             <input
               type="text"
               name="phone"
@@ -85,8 +106,8 @@ const BookingModal = ({ device, setDevice }) => {
               className="btn mt-3  btn-outline"
             >
               Submit
-            </button>
-          </form>
+            </button>{" "}
+          </form>{" "}
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
@@ -7,6 +7,8 @@ import { FcGoogle } from "react-icons/fc";
 const Register = () => {
   const { createUser, updateUserProfile, providerLogin } =
     useContext(authContext);
+
+  const navigate = useNavigate();
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -42,7 +44,9 @@ const Register = () => {
             };
 
             updateUserProfile(userInfo)
-              .then(() => {})
+              .then(() => {
+                navigate("/");
+              })
               .catch((e) => console.error(e));
           })
           .catch((error) => console.log(error));
