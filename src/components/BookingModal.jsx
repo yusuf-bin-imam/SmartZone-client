@@ -13,6 +13,7 @@ const BookingModal = ({ device, setDevice }) => {
     const form = event.target;
     const userName = form.name.value;
     const email = form.email.value;
+    const photo = form.image.value;
     // const device = form.device.value;
     const price = form.price.value;
     const phone = form.phone.value;
@@ -20,6 +21,7 @@ const BookingModal = ({ device, setDevice }) => {
 
     const booking = {
       userName,
+      photo,
       deviceName: name,
       location,
       price,
