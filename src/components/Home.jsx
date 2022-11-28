@@ -57,16 +57,16 @@ const Home = () => {
               people.
             </p>
             <div className="flex  items-center">
-              <Link
+              {/* <Link
                 className="group relative inline-block overflow-hidden border border-teal-600 px-8 py-3 focus:outline-none focus:ring"
-                href="/download"
+                to={"/category"}
               >
                 <span className="absolute inset-y-0 left-0 w-[2px] bg-teal-600 transition-all group-hover:w-full group-active:bg-teal-500"></span>
 
                 <span className="relative text-sm font-medium text-teal-600 transition-colors group-hover:text-white">
                   Buy Now
                 </span>
-              </Link>
+              </Link> */}
               <Link
                 to={"/about"}
                 className=" ml-5 group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"

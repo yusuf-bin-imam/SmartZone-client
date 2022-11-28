@@ -16,17 +16,35 @@ const Navigation = () => {
       <header className="text-gray-400  rounded bg-gray-900 body-font">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <nav className="flex lg:w-2/5 flex-wrap items-center font-bold text-base md:ml-auto">
-            <Link to={"/"} className="mr-5 hover:text-teal-500">
-              Home
-            </Link>
-            <Link className="mr-5 hover:text-teal-500">Second Link</Link>
-            <Link className="mr-5 hover:text-teal-500">Third Link</Link>
-            <Link to={"/dashboard"} className="mr-5 hover:text-teal-500">
-              Dashboard
-            </Link>
-            <Link to={"/blog"} className="hover:text-teal-500">
-              Blogs
-            </Link>
+            {user?.uid ? (
+              <>
+                {" "}
+                <Link to={"/"} className="mr-5 hover:text-teal-500">
+                  Home
+                </Link>
+                <Link className="mr-5 hover:text-teal-500">Second Link</Link>
+                <Link className="mr-5 hover:text-teal-500">Third Link</Link>
+                <Link to={"/dashboard"} className="mr-5 hover:text-teal-500">
+                  Dashboard
+                </Link>
+                <Link to={"/blog"} className="hover:text-teal-500">
+                  Blogs
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to={"/"} className="mr-5 hover:text-teal-500">
+                  Home
+                </Link>
+                <Link className="mr-5 hover:text-teal-500">Second Link</Link>
+                <Link className="mr-5 hover:text-teal-500">
+                  Third Link
+                </Link>{" "}
+                <Link to={"/blog"} className="hover:text-teal-500">
+                  Blogs
+                </Link>
+              </>
+            )}
           </nav>{" "}
           <Link className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-white lg:items-center lg:justify-center mb-4 md:mb-0">
             <img

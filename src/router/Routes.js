@@ -9,7 +9,13 @@ import Register from "../components/Register";
 import DashboardLayout from "../components/DasgboardLayout";
 import Main from "../root/Main";
 import PrivateRoute from "./PrivateRoute";
-import MyOrders from "../components/MyOrders";
+import MyOrders from "../components/DashBoardInfo/MyOrders";
+import AddAProduct from "../components/DashBoardInfo/AddAProduct";
+import AllProduct from "../components/DashBoardInfo/AllProduct";
+import Category from "../components/Category";
+import AllSellers from "../components/DashBoardInfo/AllSellers";
+import AllBuyers from "../components/DashBoardInfo/AllBuyers";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,14 +33,14 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/register", element: <Register /> },
       {
-        path: "*",
-        element: <Error />,
-      },
-      {
         path: "/product/:id",
         element: <CategoryProducts />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/product/${params.id}`),
+      },
+      {
+        path: "*",
+        element: <Error />,
       },
     ],
   },
@@ -49,6 +55,26 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <MyOrders />,
+      },
+      {
+        path: "/dashboard/addProduct",
+        element: <AddAProduct />,
+      },
+      {
+        path: "/dashboard/allProduct",
+        element: <AllProduct />,
+      },
+      {
+        path: "/dashboard/allSeller",
+        element: (
+          <AdminRoute>
+            <AllSellers />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allBuyers",
+        element: <AllBuyers />,
       },
     ],
   },

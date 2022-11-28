@@ -1,14 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
+import useToken from "../hooks/useToken";
 
 const Register = () => {
   const { createUser, updateUserProfile, providerLogin } =
     useContext(authContext);
 
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
+
+  if (token) {
+    navigate("/");
+  }
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -67,20 +74,10 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        getUserToken(email);
+        setCreatedUserEmail(email);
       });
   };
 
-  const getUserToken = (email) => {
-    fetch(`http://localhost:5000/jwt?email=${email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.accessToken) {
-          localStorage.setItem("accessToken", data.accessToken);
-          navigate("/");
-        }
-      });
-  };
   // sign in with google
   const googleProvider = new GoogleAuthProvider();
 

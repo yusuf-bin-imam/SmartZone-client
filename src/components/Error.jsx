@@ -12,7 +12,7 @@ const Error = () => {
         <div className="text-center">
           <img
             className="w-50 h-80"
-            src="https://img.freepik.com/free-vector/business-man-depressed-stressed-watching-decrease-graph-stock-financial-trade-market-diagram_1150-39760.jpg?w=1060&t=st=1669235734~exp=1669236334~hmac=c9cd9069e0b3c47d647a4efbdf013cfa71d8beb557cab79b04c52c553c7d483d"
+            src="https://cdn.dribbble.com/users/1175431/screenshots/6188233/404-error-dribbble-800x600.gif"
             alt=""
           />
           <h1 className="mt-6 text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
