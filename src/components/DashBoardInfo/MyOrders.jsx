@@ -1,12 +1,6 @@
 import React, { useContext } from "react";
 import { authContext } from "../../context/AuthProvider";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const MyOrders = () => {
   const { user } = useContext(authContext);

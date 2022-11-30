@@ -23,8 +23,9 @@ const Register = () => {
     const email = form.email.value;
     const password = event.target.password.value;
     const name = form.name.value;
+    const role = form.role.value;
     const photo = form.photo.files[0];
-    console.log(email, password, name, photo);
+    console.log(email, role, password, name, photo);
 
     const formData = new FormData();
     formData.append("image", photo);
@@ -52,7 +53,7 @@ const Register = () => {
 
             updateUserProfile(userInfo)
               .then(() => {
-                saveUser(name, email);
+                saveUser(name, email, role);
               })
               .catch((e) => console.error(e));
           })
@@ -63,8 +64,8 @@ const Register = () => {
     console.log(formData);
   };
 
-  const saveUser = (name, email) => {
-    const user = { name, email };
+  const saveUser = (name, email, role) => {
+    const user = { name, email, role };
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
@@ -147,6 +148,12 @@ const Register = () => {
                         className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border  rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
                         placeholder="Enter your password"
                       />
+                    </div>
+                    <div className="mt-3">
+                      <select name="role" className="select w-full max-w-xs">
+                        <option value={"buyer"}>Buyer</option>
+                        <option value={"seller"}>Seller</option>
+                      </select>
                     </div>
                     <div className="mt-3">
                       <label for="Photo" className="sr-only">

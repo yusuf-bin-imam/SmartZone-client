@@ -25,9 +25,7 @@ const DasgboardLayout = () => {
             <li className="btn btn-outline mt-2 rounded-lg">
               <Link to={"/dashboard"}>My Orders</Link>
             </li>
-            <li className="btn btn-outline mt-2">
-              <Link to={"/dashboard/addProduct"}>Add A product</Link>
-            </li>
+
             <li className="btn btn-outline mt-2">
               <Link to={"/dashboard/allProduct"}>My Products</Link>
             </li>
@@ -35,6 +33,9 @@ const DasgboardLayout = () => {
               <>
                 <li className="btn btn-outline mt-2">
                   <Link to={"/dashboard/allSeller"}>All Sellers</Link>
+                </li>
+                <li className="btn btn-outline mt-2">
+                  <Link to={"/dashboard/addProduct"}>Add A product</Link>
                 </li>
               </>
             )}
