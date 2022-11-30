@@ -41,7 +41,7 @@ const AddAProduct = () => {
             image: imgData.data.url,
           };
           console.log(product);
-          fetch("http://localhost:5000/products", {
+          fetch("https://assignment-12-server-lake.vercel.app/products", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -63,7 +63,9 @@ const AddAProduct = () => {
   const { data: brands, isLoading } = useQuery({
     queryKey: ["brand"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/brandCategory");
+      const res = await fetch(
+        "https://assignment-12-server-lake.vercel.app/brandCategory"
+      );
       const data = await res.json();
       return data;
     },

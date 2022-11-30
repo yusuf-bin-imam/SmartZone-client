@@ -9,12 +9,15 @@ const AllProduct = () => {
   // delete product
   const confirmDeleteProduct = (product) => {
     console.log(product);
-    fetch(`http://localhost:5000/products/${product._id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://assignment-12-server-lake.vercel.app/products/${product._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
@@ -36,11 +39,14 @@ const AllProduct = () => {
     queryKey: ["doctors"],
     queryFn: async () => {
       try {
-        const res = await fetch("http://localhost:5000/products", {
-          headers: {
-            authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          },
-        });
+        const res = await fetch(
+          "https://assignment-12-server-lake.vercel.app/products",
+          {
+            headers: {
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
         const data = await res.json();
         return data;
       } catch (error) {}
