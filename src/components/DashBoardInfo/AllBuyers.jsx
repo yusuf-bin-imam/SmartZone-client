@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import ConfirmationModal from "../ConfirmationModal";
 
 const AllBuyers = () => {
   const [dltBuyer, setDltBuyer] = useState(null);
@@ -18,7 +19,7 @@ const AllBuyers = () => {
       .then((data) => {
         if (data.deletedCount) {
           refetch();
-          toast.success("Seller removed successfully");
+          toast.success("Buyer removed successfully");
         }
       });
   };
@@ -59,12 +60,28 @@ const AllBuyers = () => {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>
-                <button className="btn btn-xs btn-secondary">Delete</button>
+                <label
+                  onClick={() => setDltBuyer(user)}
+                  htmlFor="confirmation modal"
+                  className="btn  btn-success btn-outline"
+                >
+                  Delete
+                </label>
               </td>
             </tr>
           </tbody>
         ))}
       </table>
+      {dltBuyer && (
+        <ConfirmationModal
+          title={`Are you sure to delete this product ?`}
+          message={`If you delete ${dltBuyer.name} , you Can't recover anymore`}
+          deleteProduct={confirmDeleteProduct}
+          deleteButton="DELETE"
+          modalData={dltBuyer}
+          cancelDelete={cancelDelete}
+        />
+      )}
     </div>
   );
 };
