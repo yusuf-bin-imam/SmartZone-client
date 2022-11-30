@@ -37,26 +37,26 @@ const AllSellers = () => {
   });
   // console.log(users);
 
-  // const makeAdmin = (id) => {
-  //   fetch(`http://localhost:5000/users/admin/${id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       authorization: `bearer ${localStorage.getItem("accessToken")}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       if (data.modifiedCount > 0) {
-  //         toast.success("Promoted as Admin successfully");
-  //         refetch();
-  //       }
-  //     });
-  // };
+  const makeVerify = (id) => {
+    fetch(`http://localhost:5000/users/admin/${id}`, {
+      method: "PUT",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Successfully Verified");
+          refetch();
+        }
+      });
+  };
   return (
     <div>
       <div className="overflow-x-auto">
         <h4 className="mt-5 text-4xl font-bold font-serif text-teal-900 mb-5">
-          Sellers
+          All Sellers
         </h4>
         <table className="table w-full">
           <thead>
@@ -64,7 +64,7 @@ const AllSellers = () => {
               <th></th>
               <th>Name</th>
               <th>Email</th>
-              {/* <th>Admin</th> */}
+              <th>Admin</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -75,14 +75,12 @@ const AllSellers = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>
-                  {/* {user?.role !== "admin" && (
-                    <button
-                      onClick={() => makeAdmin(user._id)}
-                      className="btn btn-primary btn-xs"
-                    >
-                      Make admin
-                    </button>
-                  )} */}
+                  <button
+                    onClick={() => makeVerify(user._id)}
+                    className="btn btn-primary btn-xs"
+                  >
+                    {user?.status === "verified" ? "verified" : "Verify"}
+                  </button>
                 </td>
                 <td>
                   <label

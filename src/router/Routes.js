@@ -16,6 +16,7 @@ import Category from "../components/Category";
 import AllSellers from "../components/DashBoardInfo/AllSellers";
 import AllBuyers from "../components/DashBoardInfo/AllBuyers";
 import AdminRoute from "./AdminRoute";
+import SellerRoute from "./SellerRoute";
 
 const router = createBrowserRouter([
   {
@@ -59,14 +60,19 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/addProduct",
         element: (
-          <AdminRoute>
+          <SellerRoute>
+            {" "}
             <AddAProduct />
-          </AdminRoute>
+          </SellerRoute>
         ),
       },
       {
         path: "/dashboard/allProduct",
-        element: <AllProduct />,
+        element: (
+          <SellerRoute>
+            <AllProduct />
+          </SellerRoute>
+        ),
       },
       {
         path: "/dashboard/allSeller",

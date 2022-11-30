@@ -57,25 +57,15 @@ const Home = () => {
               people.
             </p>
             <div className="flex  items-center">
-              {/* <Link
-                className="group relative inline-block overflow-hidden border border-teal-600 px-8 py-3 focus:outline-none focus:ring"
-                to={"/category"}
-              >
-                <span className="absolute inset-y-0 left-0 w-[2px] bg-teal-600 transition-all group-hover:w-full group-active:bg-teal-500"></span>
-
-                <span className="relative text-sm font-medium text-teal-600 transition-colors group-hover:text-white">
-                  Buy Now
-                </span>
-              </Link> */}
               <Link
-                to={"/about"}
+                to={"/blog"}
                 className=" ml-5 group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"
                 href="/download"
               >
                 <span className="absolute inset-x-0 bottom-0 h-[2px] bg-indigo-600 transition-all group-hover:h-full group-active:bg-indigo-500"></span>
 
                 <span className="relative text-sm font-medium text-indigo-600 transition-colors group-hover:text-white">
-                  About Us
+                  Blog
                 </span>
               </Link>
             </div>

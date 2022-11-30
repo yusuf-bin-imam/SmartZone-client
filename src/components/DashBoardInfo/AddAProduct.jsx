@@ -15,7 +15,7 @@ const AddAProduct = () => {
   // console.log(imageHostingKey);
 
   const addProduct = (data) => {
-    console.log(data);
+    // console.log(data);
     const image = data.image[0];
     // console.log(image);
     const formData = new FormData();
@@ -26,19 +26,19 @@ const AddAProduct = () => {
       body: formData,
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then((imgData) => {
+        console.log("hello");
         // console.log(data);
-        if (data.success) {
+        if (imgData.success) {
           // console.log(data.data.url);
           const product = {
-            // productName: data.productName,
-            // orginalPrice: data.orginalPrice,
-            // resalePrice: data.resalePrice,
-            // yearOfUse: data.use,
-            // condition: data.condition,
-            // brand: data.brand,
-            productDetails: data.data.orginalPrice,
-            image: data.data.url,
+            productName: data.productName,
+            orginalPrice: data.orginalPrice,
+            resalePrice: data.resalePrice,
+            yearOfUse: data.use,
+            condition: data.condition,
+            brand: data.brand,
+            image: imgData.data.url,
           };
           console.log(product);
           fetch("http://localhost:5000/products", {
