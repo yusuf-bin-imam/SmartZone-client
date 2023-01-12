@@ -248,7 +248,7 @@ const AddAProduct = () => {
               )}
             </div>
           </div>
-          <div class="w-full ">
+          <div className="w-full ">
             <select
               {...register("brand", {
                 required: "brand is required",

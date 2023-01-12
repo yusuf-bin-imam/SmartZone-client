@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <div className="bg-white">
-      <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
+      {/* <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
         <div
           data-aos="fade-left"
           data-aos-duration="3000"
@@ -31,7 +31,7 @@ const Home = () => {
           </svg>
           <img
             className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-            src="https://i.pinimg.com/originals/70/7c/39/707c39bfff546612b5b4604fe86cda32.gif"
+            src="https://img.freepik.com/premium-photo/young-man-using-smartphone-with-shopping-cart-icon_112554-1016.jpg?size=626&ext=jpg&uid=R84749405&ga=GA1.2.1039112445.1666531408&semt=sph"
             alt=""
           />
         </div>
@@ -71,6 +71,37 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </div> */}
+      <div className="flex flex-col bg-[#cbe5d3] items-center justify-center px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:pt-32 md:px-0">
+        <div className="flex flex-col items-center max-w-2xl ">
+          <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+            <h2
+              id="title"
+              className="max-w-lg mb-3 font-sans text-5xl font-extrabold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto"
+            >
+              SmartZone
+            </h2>
+            <p id="text" className="font-bold text-xl">
+              SmartZone is a tech house that provides and receive preowned
+              device to the consumers.
+            </p>
+            <Link to={"/blog"}>
+              <button className="bg[#f4ac44] px-14 py-3 mt-5 mr-3 rounded-md border border-black font-bold ">
+                Blog
+              </button>
+            </Link>
+            <Link to={"/blog"}>
+              <button className="bg-[#ecc4b4] px-14 py-3 mt-5 rounded-md border border-black font-bold ">
+                Blog
+              </button>
+            </Link>
+          </div>
+        </div>
+        <img
+          src="https://img.freepik.com/free-photo/social-media-audience-crowd-filming-through-smartphones_53876-128944.jpg?size=626&ext=jpg&uid=R84749405&ga=GA1.1.1039112445.1666531408&semt=sph"
+          className="w-full  max-w-screen-sm mx-auto rounded  md:w-auto lg:max-w-screen-md"
+          alt=""
+        />
       </div>
 
       <Category categories={categories} />
