@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation";
 import { authContext } from "../context/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
 import useSeller from "../hooks/useSeller";
+import Header from "../components/Header";
 
 const DasgboardLayout = () => {
   const { user } = useContext(authContext);
@@ -11,7 +12,8 @@ const DasgboardLayout = () => {
   const [isSeller] = useSeller(user?.email);
   return (
     <div>
-      <Navigation />
+      {/* <Navigation /> */}
+      <Header />
       <div className="drawer drawer-mobile">
         <input
           id="dashboard-drawer"

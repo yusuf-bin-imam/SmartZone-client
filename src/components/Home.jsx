@@ -79,19 +79,25 @@ const Home = () => {
               id="title"
               className="max-w-lg mb-3 font-sans text-5xl font-extrabold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto"
             >
-              SmartZone
+              Smarter, Safer, Smoother
             </h2>
             <p id="text" className="font-bold text-xl">
               SmartZone is a tech house that provides and receive preowned
               device to the consumers.
             </p>
-            <Link to={"/blog"}>
-              <button className="bg[#f4ac44] px-14 py-3 mt-5 mr-3 rounded-md border border-black font-bold ">
-                Blog
+            <a href="#brand">
+              <button
+                id="title"
+                className="bg-[#f4ac44] text-md px-14 font-bold py-3 mt-5 mr-3 rounded-md border border-black  "
+              >
+                Popular Brands
               </button>
-            </Link>
+            </a>
             <Link to={"/blog"}>
-              <button className="bg-[#ecc4b4] px-14 py-3 mt-5 rounded-md border border-black font-bold ">
+              <button
+                id="title"
+                className="bg-[#ecc4b4] px-14 py-3 mt-5 rounded-md border border-black font-bold "
+              >
                 Blog
               </button>
             </Link>

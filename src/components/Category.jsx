@@ -5,7 +5,10 @@ import CategoryDevices from "./CategoryDevices";
 const Category = ({ categories }) => {
   return (
     <div>
-      <section className="text-gray-600 max-w-screen-xl  mx-auto body-font">
+      <section
+        id="brand"
+        className="text-gray-600 max-w-screen-xl  mx-auto body-font"
+      >
         <div className="container px-5 py-24 mx-auto">
           <h2 id="title" className="text-4xl  font-bold text-teal-900">
             Brand

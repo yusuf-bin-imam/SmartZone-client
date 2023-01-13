@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="mt-40">
+    <div>
       <footer aria-label="Site Footer" className="bg-black ">
         <div className="max-w-screen-xl px-4 pt-16 pb-8 mx-auto sm:px-6 lg:px-8 lg:pt-12">
           <div className="text-center">
