@@ -49,9 +49,9 @@ const Login = () => {
   };
   return (
     <div className="bg-[#f3f3f3]">
-      <section className="max-w-screen-lg min-h-screen mx-auto ">
+      <section className="max-w-screen-lg  mx-auto ">
         <div className="px-6 h-full text-gray-800">
-          <div className="flex xl:justify-center  lg:justify-between justify-center items-center flex-wrap h-full g-6">
+          <div className="flex xl:justify-center h-screen  lg:justify-between justify-center items-center flex-wrap  g-6">
             <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
               <img
                 data-aos="fade-right"

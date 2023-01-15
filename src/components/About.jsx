@@ -21,8 +21,8 @@ const About = () => {
         data-aos-duration="3000"
         className="grid gap-3 row-gap-3 font-bold text-blue-700 lg:grid-cols-3"
       >
-        <ul className="space-y-3">
-          <li className="flex items-start">
+        <ul id="text" className="space-y-3">
+          <li id="text" className="flex items-start">
             <span className="mr-1">
               <svg
                 className="w-5 h-5 mt-px text-deep-purple-accent-400"

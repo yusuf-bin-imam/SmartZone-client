@@ -88,7 +88,7 @@ const Home = () => {
             <a href="#brand">
               <button
                 id="title"
-                className="bg-[#f4ac44] text-md px-14 font-bold py-3 mt-5 mr-3 rounded-md border border-black  "
+                className="bg-[#f4ac44] text-md px-5 font-bold py-3 mt-5 mr-3 rounded-md border border-black  "
               >
                 Popular Brands
               </button>

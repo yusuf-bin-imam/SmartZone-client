@@ -21,3 +21,11 @@ code {
 #text {
   font-family: "Sofia Sans", sans-serif;
 }
+#title-txt {
+  font-family: "Titillium Web", sans-serif;
+}
+nav a.active {
+  background-color: transparent;
+  padding: 5px;
+  border-bottom: 2px solid green;
+}
