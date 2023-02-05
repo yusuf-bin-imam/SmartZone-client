@@ -9,7 +9,7 @@ const AllSellers = () => {
   // delete seller
   const confirmDeleteProduct = (seller) => {
     console.log(seller);
-    fetch(`https://assignment-12-server-lake.vercel.app/seller/${seller._id}`, {
+    fetch(`${process.env.REACT_APP_URL}/seller/${seller._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -30,9 +30,7 @@ const AllSellers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(
-        "https://assignment-12-server-lake.vercel.app/seller"
-      );
+      const res = await fetch(`${process.env.REACT_APP_URL}/seller`);
       const data = res.json();
       return data;
     },
@@ -40,7 +38,7 @@ const AllSellers = () => {
   // console.log(users);
 
   const makeVerify = (id) => {
-    fetch(`https://assignment-12-server-lake.vercel.app/users/admin/${id}`, {
+    fetch(`${process.env.REACT_APP_URL}/users/admin/${id}`, {
       method: "PUT",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

@@ -33,8 +33,11 @@ export default function Example() {
           <NavLink to={"/"} className=" hover:text-green-800">
             Home
           </NavLink>
-          <NavLink to={"/dashboard"} className="mr-5 hover:text-green-800">
+          <NavLink to={"/dashboard"} className=" hover:text-green-800">
             Dashboard
+          </NavLink>
+          <NavLink>
+            <a href="/#Brand">Brand</a>
           </NavLink>
           <NavLink to={"/blog"} className="hover:text-teal-500">
             Blogs
@@ -45,6 +48,7 @@ export default function Example() {
           <NavLink to={"/"} className=" hover:text-green-800">
             Home
           </NavLink>
+          <a href="/#Brand">Brand</a>
 
           <NavLink to={"/blog"} className="hover:text-green-800">
             Blogs

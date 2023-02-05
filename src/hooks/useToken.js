@@ -5,7 +5,7 @@ const useToken = (email) => {
 
   useEffect(() => {
     if (email) {
-      fetch(`https://assignment-12-server-lake.vercel.app/jwt?email=${email}`)
+      fetch(`${process.env.REACT_APP_URL}/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.accessToken) {

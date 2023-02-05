@@ -4,14 +4,12 @@ import { useQuery } from "@tanstack/react-query";
 
 const MyOrders = () => {
   const { user } = useContext(authContext);
-  const url = `https://assignment-12-server-lake.vercel.app/bookings?email=${user?.email}`;
+  const url = `${process.env.REACT_APP_URL}/bookings?email=${user?.email}`;
 
   const { data: users = [] } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(
-        "https://assignment-12-server-lake.vercel.app/users"
-      );
+      const res = await fetch(`${process.env.REACT_APP_URL}/users`);
       const data = await res.json();
       return data;
     },

@@ -29,7 +29,7 @@ const BookingModal = ({ device, setDevice }) => {
       phone,
     };
     // console.log(booking);
-    fetch("https://assignment-12-server-lake.vercel.app/bookings", {
+    fetch(`${process.env.REACT_APP_URL}/bookings`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

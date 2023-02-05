@@ -1,6 +1,20 @@
 import React from "react";
+import { useContext } from "react";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { authContext } from "../context/AuthProvider";
 
 const Product = ({ product, setDevice }) => {
+  const navigate = useNavigate();
+  // const currentLocation = useLocation();
+  const { user } = useContext(authContext);
+
+  const handleBookNow = () => {
+    if (!!user) {
+      setDevice(product);
+    } else {
+      navigate("/login");
+    }
+  };
   const {
     resalePrice,
     name,
@@ -50,7 +64,7 @@ const Product = ({ product, setDevice }) => {
             </p>
           </div>
           <label
-            onClick={() => setDevice(product)}
+            onClick={handleBookNow}
             htmlFor="Booking-modal"
             className="btn-success px-24 btn"
           >

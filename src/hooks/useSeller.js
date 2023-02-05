@@ -6,9 +6,7 @@ const useSeller = (email) => {
   const [isSellerLoading, setIsSellerLoading] = useState(true);
   useEffect(() => {
     if (email) {
-      fetch(
-        `https://assignment-12-server-lake.vercel.app/users/seller/${email}`
-      )
+      fetch(`${process.env.REACT_APP_URL}/users/seller/${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

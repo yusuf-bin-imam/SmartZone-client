@@ -37,9 +37,9 @@ const router = createBrowserRouter([
         path: "/product/:id",
         element: <CategoryProducts />,
         loader: ({ params }) =>
-          fetch(
-            `https://assignment-12-server-lake.vercel.app/product/${params.id}`
-          ),
+          fetch(`${process.env.REACT_APP_URL}/product/${params.id}`)
+            .then((res) => res.json())
+            .then((data) => data),
       },
       {
         path: "*",

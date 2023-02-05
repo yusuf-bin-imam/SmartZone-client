@@ -29,3 +29,6 @@ nav a.active {
   padding: 5px;
   border-bottom: 2px solid green;
 }
+#txt {
+  font-family: "Poppins", sans-serif;
+}
