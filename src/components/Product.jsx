@@ -5,7 +5,6 @@ import { authContext } from "../context/AuthProvider";
 
 const Product = ({ product, setDevice }) => {
   const navigate = useNavigate();
-  // const currentLocation = useLocation();
   const { user } = useContext(authContext);
 
   const handleBookNow = () => {
