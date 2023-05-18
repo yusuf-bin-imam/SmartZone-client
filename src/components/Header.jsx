@@ -19,7 +19,11 @@ export default function Example() {
       .then(() => {})
       .catch((e) => console.error(e));
   };
-
+  const navStyle = ({ isActive }) => {
+    return {
+      borderBottom: isActive ? "2px solid yellow" : "none",
+    };
+  };
   const [openNav, setOpenNav] = useState(false);
   console.log(openNav);
 
@@ -30,21 +34,26 @@ export default function Example() {
     >
       {user?.uid ? (
         <>
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to={"/dashboard"}>Dashboard</NavLink>
-          <NavLink>
-            <a href="/#Brand">Brand</a>
+          <NavLink style={navStyle} to={"/"}>
+            Home
           </NavLink>
-          <NavLink to={"/blog"} className="hover:text-teal-500">
+          <NavLink style={navStyle} to={"/dashboard"}>
+            Dashboard
+          </NavLink>
+
+          <NavLink style={navStyle} to={"/blog"}>
             Blogs
           </NavLink>
         </>
       ) : (
         <>
-          <NavLink to={"/"}>Home</NavLink>
-          <a href="/#Brand">Brand</a>
+          <NavLink style={navStyle} to={"/"}>
+            Home
+          </NavLink>
 
-          <NavLink to={"/blog"}>Blogs</NavLink>
+          <NavLink style={navStyle} to={"/blog"}>
+            Blogs
+          </NavLink>
         </>
       )}
     </nav>
@@ -82,7 +91,7 @@ export default function Example() {
                 onClick={handleLogOut}
                 className="hidden bg-[#941010] py-3 lg:inline-block"
               >
-                <span>Sign Out</span>
+                <span>Log Out</span>
               </Button>
             </>
           ) : (
