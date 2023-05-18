@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import ConfirmationModal from "../ConfirmationModal";
+import Loader from "../Loader";
 
 const AllProduct = () => {
   const [dltProduct, setDltProduct] = useState(null);
@@ -48,7 +49,7 @@ const AllProduct = () => {
   });
 
   if (isLoading) {
-    return <progress className="progress w-56"></progress>;
+    return <Loader />;
   }
   return (
     <div>

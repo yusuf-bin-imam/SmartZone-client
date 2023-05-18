@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CategoryDevices = ({ category }) => {
+  console.log(category);
   return (
     <div>
       <div>
         <Link to={`/product/${category?.categoryId}`}>
-          <div className="border-2 border-black m-20 mt-10 px-20   transition-all hover:scale-110 py-6 rounded-lg">
+          <div className="border-2 border-black bg-[#F5F0BB] m-20 mt-10 px-20   transition-all hover:scale-110 py-6 rounded-lg">
             {/* <img src={category.img} alt="" /> */}
             <p
               id="title"

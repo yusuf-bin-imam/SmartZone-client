@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import CategoryDevices from "./CategoryDevices";
 
 const Category = ({ categories }) => {
+  console.log(categories);
   return (
     <div className="" id="Brand">
       <section
         id="brand"
-        className="text-gray-600 max-w-screen-xl  mx-auto body-font"
+        className="text-gray-600 max-w-screen-lg  mx-auto body-font"
       >
         <div className="container px-5 py-24 mx-auto">
           <h2
