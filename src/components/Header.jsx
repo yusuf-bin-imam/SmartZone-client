@@ -26,16 +26,12 @@ export default function Example() {
   const navList = (
     <nav
       id="text"
-      className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6  font-bold text-black text-base "
+      className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6  font-bold text-white text-base "
     >
       {user?.uid ? (
         <>
-          <NavLink to={"/"} className=" hover:text-green-800">
-            Home
-          </NavLink>
-          <NavLink to={"/dashboard"} className=" hover:text-green-800">
-            Dashboard
-          </NavLink>
+          <NavLink to={"/"}>Home</NavLink>
+          <NavLink to={"/dashboard"}>Dashboard</NavLink>
           <NavLink>
             <a href="/#Brand">Brand</a>
           </NavLink>
@@ -45,14 +41,10 @@ export default function Example() {
         </>
       ) : (
         <>
-          <NavLink to={"/"} className=" hover:text-green-800">
-            Home
-          </NavLink>
+          <NavLink to={"/"}>Home</NavLink>
           <a href="/#Brand">Brand</a>
 
-          <NavLink to={"/blog"} className="hover:text-green-800">
-            Blogs
-          </NavLink>
+          <NavLink to={"/blog"}>Blogs</NavLink>
         </>
       )}
     </nav>
@@ -61,12 +53,12 @@ export default function Example() {
   return (
     <Navbar
       id="text"
-      className="mx-auto  bg-[#cbe5d3]    px-4 border-none lg:px-8 rounded-none lg:py-8"
+      className="mx-auto text-white  bg-[#1b3764]    px-4 border-none lg:px-8 rounded-none lg:py-8"
     >
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Link
           to={"/"}
-          className="mr-4 flex  cursor-pointer py-1.5 font-bold text-4xl text-gray-800"
+          className="mr-4 flex  cursor-pointer py-1.5 font-bold text-4xl"
         >
           <img
             className="w-12 h-12 -mt-1"
