@@ -48,22 +48,22 @@ const MyOrders = () => {
           <tbody>
             {bookings &&
               bookings?.map((book, i) => (
-                <tr key={book._id}>
+                <tr key={book?._id}>
                   <th>{i + 1}</th>
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                          <img src={book.photo} />
+                          <img alt="" src={book.photo} />
                         </div>
                       </div>
                     </div>
                   </td>
                   <td>
-                    {book.deviceName}
+                    {book?.deviceName}
                     <br />
                   </td>
-                  <td>{book.price}</td>
+                  <td>{book?.price}</td>
                   <th>
                     <button className="btn  btn-outline btn-secondary ">
                       Pay

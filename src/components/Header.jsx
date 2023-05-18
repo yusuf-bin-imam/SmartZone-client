@@ -13,7 +13,7 @@ import { RxCross2 } from "react-icons/rx";
 
 export default function Example() {
   const { user, logOut } = useContext(authContext);
-
+  console.log(user);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -78,14 +78,21 @@ export default function Example() {
         <div className="hidden lg:block">{navList}</div>
         <div className="flex">
           {user?.uid ? (
-            <Button
-              variant="gradient"
-              id="text"
-              onClick={handleLogOut}
-              className="hidden bg-[#941010] py-3 lg:inline-block"
-            >
-              <span>Sign Out</span>
-            </Button>
+            <>
+              <div className="avatar">
+                <div className="w-12 mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img alt="userImage" src={user?.photoURL} />
+                </div>
+              </div>
+              <Button
+                variant="gradient"
+                id="text"
+                onClick={handleLogOut}
+                className="hidden bg-[#941010] py-3 lg:inline-block"
+              >
+                <span>Sign Out</span>
+              </Button>
+            </>
           ) : (
             <>
               <Link to={"/login"}>
