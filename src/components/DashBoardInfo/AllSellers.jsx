@@ -55,10 +55,13 @@ const AllSellers = () => {
   return (
     <div>
       <div className="overflow-x-auto">
-        <h4 className="mt-5 text-4xl font-bold font-serif text-teal-900 mb-5">
+        <h4 className="mt-5 text-4xl font-bold font-serif text-teal-900 mb-2">
           All Sellers
         </h4>
-        <table className="table w-full">
+        <p id="txt" className="font-bold">
+          Browse, Connect, and Engage with All Sellers Available
+        </p>
+        <table className="table mt-5 w-full">
           <thead>
             <tr>
               <th></th>

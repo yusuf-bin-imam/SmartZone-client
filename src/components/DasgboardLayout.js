@@ -5,12 +5,13 @@ import { authContext } from "../context/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
 import useSeller from "../hooks/useSeller";
 import Header from "../components/Header";
+import { SiSellfy } from "react-icons/si";
 import {
   BsCartCheckFill,
   BsDatabaseFillAdd,
   BsFillHouseAddFill,
 } from "react-icons/bs";
-import { FaProductHunt } from "react-icons/fa";
+import { FaBuysellads, FaProductHunt } from "react-icons/fa";
 
 const DasgboardLayout = () => {
   const { user } = useContext(authContext);
@@ -44,8 +45,16 @@ const DasgboardLayout = () => {
           <ul className="menu p-4 w-64 mt-4 text-base-content">
             {!isAdmin && !isSeller && (
               <>
-                <li className="btn btn-outline mt-2 rounded-lg">
-                  <Link to={"/dashboard"}>My Orders</Link>
+                <li>
+                  <NavLink
+                    id="title"
+                    className="rounded-none font-bold"
+                    style={navStyle}
+                    to={"/dashboard/myOrders"}
+                  >
+                    <BsCartCheckFill />
+                    My Orders
+                  </NavLink>
                 </li>
               </>
             )}
@@ -53,7 +62,7 @@ const DasgboardLayout = () => {
               <>
                 <li>
                   <NavLink
-                    id="txt"
+                    id="title"
                     className="rounded-none font-bold"
                     style={navStyle}
                     to={"/dashboard/myOrders"}
@@ -64,7 +73,7 @@ const DasgboardLayout = () => {
                 </li>
                 <li className="  mt-2 ">
                   <NavLink
-                    id="txt"
+                    id="title"
                     className="rounded-none font-bold"
                     style={navStyle}
                     to={"/dashboard/allProduct"}
@@ -75,7 +84,7 @@ const DasgboardLayout = () => {
                 </li>{" "}
                 <li className="mt-2">
                   <NavLink
-                    id="txt"
+                    id="title"
                     className="rounded-none font-bold"
                     style={navStyle}
                     to={"/dashboard/addProduct"}
@@ -89,14 +98,38 @@ const DasgboardLayout = () => {
 
             {isAdmin && (
               <>
-                <li className="btn btn-outline mt-2 rounded-lg">
-                  <Link to={"/dashboard"}>My Orders</Link>
+                <li>
+                  <NavLink
+                    id="title"
+                    className="rounded-none font-bold"
+                    style={navStyle}
+                    to={"/dashboard/myOrders"}
+                  >
+                    <BsCartCheckFill />
+                    My Orders
+                  </NavLink>
                 </li>
-                <li className="btn btn-outline mt-2 rounded-lg">
-                  <Link to={"/dashboard/allSeller"}>All Sellers</Link>
+                <li>
+                  <NavLink
+                    id="title"
+                    className="rounded-none mt-2 font-bold"
+                    style={navStyle}
+                    to={"/dashboard/allSeller"}
+                  >
+                    <SiSellfy />
+                    All Sellers
+                  </NavLink>
                 </li>{" "}
-                <li className="btn btn-outline mt-2 rounded-lg">
-                  <Link to={"/dashboard/allBuyers"}>All Buyers</Link>
+                <li>
+                  <NavLink
+                    id="title"
+                    className="rounded-none mt-2 font-bold"
+                    style={navStyle}
+                    to={"/dashboard/allBuyers"}
+                  >
+                    <FaBuysellads />
+                    All Buyers
+                  </NavLink>
                 </li>
               </>
             )}

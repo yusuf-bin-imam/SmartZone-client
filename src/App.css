@@ -1,4 +1,5 @@
 .App {
+  font-family: "Poppins", sans-serif;
   text-align: center;
 }
 
@@ -60,6 +61,7 @@
   bottom: 0;
   margin: auto;
   border: 4px dotted #f00;
+  /* border: 4px dotted #1b3764; */
   border-style: solid solid dotted;
   width: 30px;
   height: 30px;
