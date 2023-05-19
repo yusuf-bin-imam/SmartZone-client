@@ -59,7 +59,7 @@ const Login = () => {
                 data-aos-duration="3000"
                 src="https://assets.materialup.com/uploads/eb1baad5-6d53-4970-9ac4-bd0d88c6e0a8/preview.gif"
                 className="w-full"
-                alt="Sample image"
+                alt="SampleImage"
               />
             </div>
             <div

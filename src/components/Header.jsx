@@ -11,6 +11,8 @@ import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../context/AuthProvider";
 import { RxCross2 } from "react-icons/rx";
 
+import noUser from "../../src/assets/default avater.png";
+
 export default function Example() {
   const { user, logOut } = useContext(authContext);
   console.log(user);
@@ -64,7 +66,7 @@ export default function Example() {
       id="text"
       className="mx-auto text-white  bg-[#1b3764]    px-4 border-none lg:px-8 rounded-none lg:py-8"
     >
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+      <div className="container mx-auto flex items-center justify-around text-blue-gray-900">
         <Link
           to={"/"}
           className="mr-4 flex  cursor-pointer py-1.5 font-bold text-4xl"
@@ -77,10 +79,10 @@ export default function Example() {
           <span className="text-4xl">SmartZone</span>
         </Link>
         <div className="hidden lg:block">{navList}</div>
-        <div className="flex">
+        <div className="flex justify-around">
           {user?.uid ? (
             <>
-              <div className="avatar">
+              {/* <div className="avatar">
                 <div className="w-12 mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                   <img alt="userImage" src={user?.photoURL} />
                 </div>
@@ -92,11 +94,61 @@ export default function Example() {
                 className="hidden bg-[#941010] py-3 lg:inline-block"
               >
                 <span>Log Out</span>
-              </Button>
+              </Button> */}
+              <div className="dropdown  dropdown-hover">
+                <label tabIndex={0}>
+                  <img
+                    className="w-12 h-12 avatar mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+                    alt="userImage"
+                    src={user?.photoURL}
+                  />
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-[#1b3764] rounded-box w-52"
+                >
+                  <li>
+                    <NavLink to={"/myProfile"}>Profile</NavLink>
+                  </li>
+                  <li>
+                    <button
+                      className="hidden text-start lg:inline-block"
+                      onClick={handleLogOut}
+                    >
+                      LogOut
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </>
           ) : (
             <>
-              <Link to={"/login"}>
+              {/* <div className="avatar">
+                <div className="w-12 mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img alt="NoUser" src={noUser} />
+                </div>
+              </div> */}
+              <div className="dropdown  dropdown-hover">
+                <label tabIndex={0}>
+                  <img
+                    className="w-12 mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+                    alt="NoUser"
+                    src={noUser}
+                  />
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-[#1b3764] rounded-box w-52"
+                >
+                  <li>
+                    <NavLink to={"/login"}>Sign In</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={"/register"}>Sign Up</NavLink>
+                  </li>
+                </ul>
+              </div>
+              {/* <Link to={"/login"}>
                 <Button
                   variant="gradient"
                   id="text"
@@ -114,7 +166,7 @@ export default function Example() {
                 >
                   <span>Sign Up</span>
                 </Button>
-              </Link>
+              </Link> */}
             </>
           )}
         </div>

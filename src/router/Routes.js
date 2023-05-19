@@ -17,6 +17,7 @@ import AllSellers from "../components/DashBoardInfo/AllSellers";
 import AllBuyers from "../components/DashBoardInfo/AllBuyers";
 import AdminRoute from "./AdminRoute";
 import SellerRoute from "./SellerRoute";
+import Profile from "../components/Profile";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/register", element: <Register /> },
+      { path: "/myProfile", element: <Profile /> },
       {
         path: "/product/:id",
         element: <CategoryProducts />,
