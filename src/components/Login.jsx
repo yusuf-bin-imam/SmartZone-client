@@ -5,7 +5,9 @@ import { useForm } from "react-hook-form";
 import { authContext } from "../context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import useToken from "../hooks/useToken";
-
+import login from "../../src/assets/login.json";
+import { FcGoogle } from "react-icons/fc";
+import Lottie from "lottie-react";
 const Login = () => {
   const { register, handleSubmit } = useForm();
   const { signIn, providerLogin } = useContext(authContext);
@@ -49,30 +51,34 @@ const Login = () => {
       .catch((e) => console.error(e));
   };
   return (
-    <div className="bg-[#f3f3f3]">
-      <section className="max-w-screen-lg  mx-auto ">
+    <div className=" min-h-screen  items-center">
+      <section className="max-w-screen-lg  mt-5 mx-auto ">
         <div className="px-6 h-full text-gray-800">
-          <div className="flex xl:justify-center h-screen  lg:justify-between justify-center items-center flex-wrap  g-6">
-            <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-              <img
-                data-aos="fade-right"
-                data-aos-duration="3000"
-                src="https://assets.materialup.com/uploads/eb1baad5-6d53-4970-9ac4-bd0d88c6e0a8/preview.gif"
-                className="w-full"
-                alt="SampleImage"
-              />
-            </div>
+          <h2 id="title" className="text-4xl font-bold">
+            Sign In
+          </h2>
+          <p id="txt" className="font-bold mt-2">
+            Welcome Back! Login to Continue
+          </p>
+
+          <div className="flex xl:justify-center  lg:justify-between justify-center items-center flex-wrap">
+            <Lottie
+              className="mt-10"
+              animationData={login}
+              loop={true}
+            ></Lottie>
+
             <div
               data-aos="fade-up"
               data-aos-duration="3000"
-              className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0"
+              className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 mt-10  md:mb-0"
             >
               <form onSubmit={handleSubmit(handleLogin)}>
                 <div className="mb-6">
                   <input
                     {...register("email")}
                     type="text"
-                    className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border  rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                    className="block w-full px-5  py-3 border rounded border-[#1b3764]"
                     required
                     placeholder="Email address"
                   />
@@ -81,7 +87,7 @@ const Login = () => {
                   <input
                     {...register("password")}
                     type="password"
-                    className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border  rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                    className="block w-full px-5  py-3 border rounded border-[#1b3764]"
                     required
                     placeholder="Password"
                   />
@@ -89,20 +95,19 @@ const Login = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="inline-block px-7 py-3 w-44 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                    className="w-full py-3 font-bold bg-[#1b3764] text-white"
                   >
                     Login
                   </button>
                   {error && <p className="text-red-600">{error}</p>}
                 </div>{" "}
-                <div className="flex justify-between items-center mb-6">
+                <div className="flex justify-between items-center mb-3">
                   <p className="text-sm text-center font-semibold mt-2 pt-1 mb-0">
-                    No Account ?
+                    You don't have any Account ?
                     <Link
                       to={"/register"}
-                      className="text-red-600 hover:text-green-700 focus:text-green-700 transition duration-200 ease-in-out"
+                      className="text-red-600  hover:text-green-700 focus:text-green-700 transition duration-200 ease-in-out"
                     >
-                      {" "}
                       Sign Up
                     </Link>
                   </p>
@@ -112,9 +117,9 @@ const Login = () => {
                 </div>{" "}
                 <button
                   onClick={handleGoogleSignIn}
-                  className="btn btn-outline  btn-success mt-3"
+                  className="btn btn-outline w-full  font-bold rounded-none "
                 >
-                  Google {""} <FaGoogle className="ml-3" />
+                  Continue with Google <FcGoogle className="text-xl ml-2" />
                 </button>
               </form>
             </div>
