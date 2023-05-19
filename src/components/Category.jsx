@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import CategoryDevices from "./CategoryDevices";
 
 const Category = ({ categories }) => {
-  console.log(categories);
+  // console.log(categories);
   return (
     <div className="" id="Brand">
       <section
@@ -14,7 +14,7 @@ const Category = ({ categories }) => {
           <h2
             data-aos="fade-down"
             data-aos-duration="1500"
-            id="text"
+            id="title"
             className="text-4xl   font-bold text-teal-900"
           >
             Brand
@@ -23,7 +23,7 @@ const Category = ({ categories }) => {
             data-aos="fade-up"
             data-aos-duration="1500"
             id="txt"
-            className="text-md mt-2 text-[#4c5a6b] font-bold"
+            className="text-md mt-2 text-black font-bold"
           >
             Select your preferred brand
           </p>
