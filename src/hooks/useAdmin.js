@@ -5,7 +5,7 @@ const useAdmin = (email) => {
   const [isAdminLoading, setisAdminLoading] = useState(true);
   useEffect(() => {
     if (email) {
-      fetch(`${process.env.REACT_APP_URL}/users/admin/${email}`)
+      fetch(`https://smartzone-server.onrender.com/users/admin/${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

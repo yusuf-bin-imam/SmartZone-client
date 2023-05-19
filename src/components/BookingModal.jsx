@@ -29,7 +29,7 @@ const BookingModal = ({ device, setDevice }) => {
       phone,
     };
     // console.log(booking);
-    fetch(`${process.env.REACT_APP_URL}/bookings`, {
+    fetch(`https://smartzone-server.onrender.com/bookings`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

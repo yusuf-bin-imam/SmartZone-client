@@ -72,7 +72,7 @@ const Register = () => {
   const saveUser = (name, email, role) => {
     const user = { name, email, role };
 
-    fetch(`${process.env.REACT_APP_URL}/users`, {
+    fetch(`https://smartzone-server.onrender.com/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

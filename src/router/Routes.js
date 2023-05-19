@@ -11,13 +11,13 @@ import Main from "../root/Main";
 import PrivateRoute from "./PrivateRoute";
 import MyOrders from "../components/DashBoardInfo/MyOrders";
 import AddAProduct from "../components/DashBoardInfo/AddAProduct";
-import AllProduct from "../components/DashBoardInfo/AllProduct";
-import Category from "../components/Category";
 import AllSellers from "../components/DashBoardInfo/AllSellers";
 import AllBuyers from "../components/DashBoardInfo/AllBuyers";
 import AdminRoute from "./AdminRoute";
 import SellerRoute from "./SellerRoute";
 import Profile from "../components/Profile";
+import MyProducts from "../components/DashBoardInfo/MyProducts";
+import Faq from "../components/Faq";
 
 const router = createBrowserRouter([
   {
@@ -35,11 +35,16 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/register", element: <Register /> },
       { path: "/myProfile", element: <Profile /> },
+      { path: "/faq", element: <Faq /> },
+      // {
+      //   path: "/contact",
+      //   element: <ContactUs />,
+      // },
       {
         path: "/product/:id",
         element: <CategoryProducts />,
         loader: ({ params }) =>
-          fetch(`${process.env.REACT_APP_URL}/product/${params.id}`)
+          fetch(`https://smartzone-server.onrender.com/product/${params.id}`)
             .then((res) => res.json())
             .then((data) => data),
       },
@@ -49,6 +54,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "/dashboard",
     element: (
@@ -65,7 +71,6 @@ const router = createBrowserRouter([
         path: "/dashboard/addProduct",
         element: (
           <SellerRoute>
-            {" "}
             <AddAProduct />
           </SellerRoute>
         ),
@@ -74,7 +79,7 @@ const router = createBrowserRouter([
         path: "/dashboard/allProduct",
         element: (
           <SellerRoute>
-            <AllProduct />
+            <MyProducts />
           </SellerRoute>
         ),
       },

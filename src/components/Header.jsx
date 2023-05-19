@@ -42,9 +42,14 @@ export default function Example() {
           <NavLink style={navStyle} to={"/dashboard"}>
             Dashboard
           </NavLink>
-
+          <NavLink style={navStyle} to={"/faq"}>
+            Faq
+          </NavLink>
           <NavLink style={navStyle} to={"/blog"}>
             Blogs
+          </NavLink>
+          <NavLink style={navStyle} to={"/contact"}>
+            Contact
           </NavLink>
         </>
       ) : (
@@ -52,9 +57,14 @@ export default function Example() {
           <NavLink style={navStyle} to={"/"}>
             Home
           </NavLink>
-
+          <NavLink style={navStyle} to={"/faq"}>
+            Faq
+          </NavLink>
           <NavLink style={navStyle} to={"/blog"}>
             Blogs
+          </NavLink>
+          <NavLink style={navStyle} to={"/contact"}>
+            Contact
           </NavLink>
         </>
       )}

@@ -10,7 +10,7 @@ const AllBuyers = () => {
   // delete buyer
   const confirmDeleteProduct = (buyer) => {
     console.log(buyer);
-    fetch(`${process.env.REACT_APP_URL}/buyer/${buyer._id}`, {
+    fetch(`https://smartzone-server.onrender.com/buyer/${buyer._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -33,7 +33,7 @@ const AllBuyers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`${process.env.REACT_APP_URL}/buyer`);
+      const res = await fetch(`https://smartzone-server.onrender.com/buyer`);
       const data = res.json();
       return data;
     },

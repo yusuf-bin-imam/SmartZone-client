@@ -47,7 +47,7 @@ const AddAProduct = () => {
           };
           console.log(product);
 
-          fetch(`http://localhost:5000/products`, {
+          fetch(`https://smartzone-server.onrender.com/products`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -68,7 +68,9 @@ const AddAProduct = () => {
   const { data: brands, isLoading } = useQuery({
     queryKey: ["brand"],
     queryFn: async () => {
-      const res = await fetch(`${process.env.REACT_APP_URL}/brandCategory`);
+      const res = await fetch(
+        `https://smartzone-server.onrender.com/brandCategory`
+      );
       const data = await res.json();
       return data;
     },

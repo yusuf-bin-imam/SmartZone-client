@@ -10,7 +10,7 @@ const AllSellers = () => {
   // delete seller
   const confirmDeleteProduct = (seller) => {
     console.log(seller);
-    fetch(`${process.env.REACT_APP_URL}/seller/${seller._id}`, {
+    fetch(`https://smartzone-server.onrender.com/seller/${seller._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -31,7 +31,7 @@ const AllSellers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch(`${process.env.REACT_APP_URL}/seller`);
+      const res = await fetch(`https://smartzone-server.onrender.com/seller`);
       const data = res.json();
       return data;
     },
@@ -39,7 +39,7 @@ const AllSellers = () => {
   // console.log(users);
 
   const makeVerify = (id) => {
-    fetch(`${process.env.REACT_APP_URL}/users/admin/${id}`, {
+    fetch(`https://smartzone-server.onrender.com/users/admin/${id}`, {
       method: "PUT",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

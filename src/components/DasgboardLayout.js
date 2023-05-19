@@ -31,109 +31,114 @@ const DasgboardLayout = () => {
     <div>
       {/* <Navigation /> */}
       <Header />
-      <div className="drawer drawer-mobile">
-        <input
-          id="dashboard-drawer"
-          type="checkbox"
-          className="drawer-toggle"
-        />
-        <div className="drawer-content">
-          <Outlet />
-        </div>
-        <div className="drawer-side ">
-          <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-64 mt-4 text-base-content">
-            {!isAdmin && !isSeller && (
-              <>
-                <li>
-                  <NavLink
-                    id="title"
-                    className="rounded-none font-bold"
-                    style={navStyle}
-                    to={"/dashboard/myOrders"}
-                  >
-                    <BsCartCheckFill />
-                    My Orders
-                  </NavLink>
-                </li>
-              </>
-            )}
-            {isSeller && (
-              <>
-                <li>
-                  <NavLink
-                    id="title"
-                    className="rounded-none font-bold"
-                    style={navStyle}
-                    to={"/dashboard/myOrders"}
-                  >
-                    <BsCartCheckFill />
-                    My Orders
-                  </NavLink>
-                </li>
-                <li className="  mt-2 ">
-                  <NavLink
-                    id="title"
-                    className="rounded-none font-bold"
-                    style={navStyle}
-                    to={"/dashboard/allProduct"}
-                  >
-                    <FaProductHunt />
-                    My Products
-                  </NavLink>
-                </li>{" "}
-                <li className="mt-2">
-                  <NavLink
-                    id="title"
-                    className="rounded-none font-bold"
-                    style={navStyle}
-                    to={"/dashboard/addProduct"}
-                  >
-                    <BsDatabaseFillAdd />
-                    Add Product
-                  </NavLink>
-                </li>
-              </>
-            )}
+      <div>
+        <div className="drawer drawer-mobile">
+          <input
+            id="dashboard-drawer"
+            type="checkbox"
+            className="drawer-toggle"
+          />
+          <div className="drawer-content">
+            <Outlet />
+          </div>
+          <div className="drawer-side ">
+            <label
+              htmlFor="dashboard-drawer"
+              className="drawer-overlay"
+            ></label>
+            <ul className="menu p-4 w-64 mt-4 text-base-content">
+              {!isAdmin && !isSeller && (
+                <>
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/myOrders"}
+                    >
+                      <BsCartCheckFill />
+                      My Orders
+                    </NavLink>
+                  </li>
+                </>
+              )}
+              {isSeller && (
+                <>
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/myOrders"}
+                    >
+                      <BsCartCheckFill />
+                      My Orders
+                    </NavLink>
+                  </li>
+                  <li className="  mt-2 ">
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/allProduct"}
+                    >
+                      <FaProductHunt />
+                      My Products
+                    </NavLink>
+                  </li>{" "}
+                  <li className="mt-2">
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/addProduct"}
+                    >
+                      <BsDatabaseFillAdd />
+                      Add Product
+                    </NavLink>
+                  </li>
+                </>
+              )}
 
-            {isAdmin && (
-              <>
-                <li>
-                  <NavLink
-                    id="title"
-                    className="rounded-none font-bold"
-                    style={navStyle}
-                    to={"/dashboard/myOrders"}
-                  >
-                    <BsCartCheckFill />
-                    My Orders
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    id="title"
-                    className="rounded-none mt-2 font-bold"
-                    style={navStyle}
-                    to={"/dashboard/allSeller"}
-                  >
-                    <SiSellfy />
-                    All Sellers
-                  </NavLink>
-                </li>{" "}
-                <li>
-                  <NavLink
-                    id="title"
-                    className="rounded-none mt-2 font-bold"
-                    style={navStyle}
-                    to={"/dashboard/allBuyers"}
-                  >
-                    <FaBuysellads />
-                    All Buyers
-                  </NavLink>
-                </li>
-              </>
-            )}
-          </ul>
+              {isAdmin && (
+                <>
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/myOrders"}
+                    >
+                      <BsCartCheckFill />
+                      My Orders
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none mt-2 font-bold"
+                      style={navStyle}
+                      to={"/dashboard/allSeller"}
+                    >
+                      <SiSellfy />
+                      All Sellers
+                    </NavLink>
+                  </li>{" "}
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none mt-2 font-bold"
+                      style={navStyle}
+                      to={"/dashboard/allBuyers"}
+                    >
+                      <FaBuysellads />
+                      All Buyers
+                    </NavLink>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

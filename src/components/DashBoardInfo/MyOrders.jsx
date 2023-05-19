@@ -13,7 +13,7 @@ const MyOrders = () => {
     queryFn: async () => {
       setLoading(true);
       const res = await fetch(
-        `http://localhost:5000/bookings/email?email=${user?.email}`,
+        `https://smartzone-server.onrender.com/bookings/email?email=${user?.email}`,
         {
           // headers: {
           //   authorization: `bearer ${localStorage.getItem("accessToken")}`,

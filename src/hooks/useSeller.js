@@ -6,7 +6,7 @@ const useSeller = (email) => {
   const [isSellerLoading, setIsSellerLoading] = useState(true);
   useEffect(() => {
     if (email) {
-      fetch(`${process.env.REACT_APP_URL}/users/seller/${email}`)
+      fetch(`https://smartzone-server.onrender.com/users/seller/${email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
