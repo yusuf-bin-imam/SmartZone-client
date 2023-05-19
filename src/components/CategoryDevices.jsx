@@ -8,8 +8,7 @@ const CategoryDevices = ({ category }) => {
       <div>
         <Link to={`/product/${category?.categoryId}`}>
           <div className="border-2 hover:border-[#1b3764]  m-20 mt-10 w-60   transition-all hover:scale-110 py-6 rounded">
-            {/* <img src={category.img} alt="" /> */}
-            <p id="title" className="font-bold mx-auto  text-xl   ">
+            <p id="title" className="font-bold mx-auto  text-xl text-black  ">
               {category?.category}
             </p>
           </div>

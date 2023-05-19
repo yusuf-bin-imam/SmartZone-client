@@ -6,9 +6,11 @@ import { authContext } from "../../context/AuthProvider";
 import Loader from "../Loader";
 
 const AddAProduct = () => {
+  const { user } = useContext(authContext);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -19,16 +21,17 @@ const AddAProduct = () => {
     // console.log(data);
     const image = data.image[0];
     // console.log(image);
+
     const formData = new FormData();
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostingKey}`;
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`;
     fetch(url, {
       method: "POST",
       body: formData,
     })
       .then((res) => res.json())
       .then((imgData) => {
-        console.log("hello");
+        // console.log("hello");
         // console.log(data);
         if (imgData.success) {
           // console.log(data.data.url);
@@ -40,27 +43,27 @@ const AddAProduct = () => {
             condition: data.condition,
             brand: data.brand,
             image: imgData.data.url,
+            email: user?.email,
           };
           console.log(product);
 
-          fetch(`${process.env.REACT_APP_URL}/products`, {
+          fetch(`http://localhost:5000/products`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
-              authorization: `bearer ${localStorage.getItem("accessToken")}`,
+              // authorization: `bearer ${localStorage.getItem("accessToken")}`,
             },
             body: JSON.stringify(product),
           })
             .then((res) => res.json())
             .then((result) => {
               console.log(result);
+              reset();
               toast.success("Inserted product successfully");
             });
         }
       });
   };
-
-  const { user } = useContext(authContext);
 
   const { data: brands, isLoading } = useQuery({
     queryKey: ["brand"],
@@ -275,7 +278,7 @@ const AddAProduct = () => {
           <div className="space-x-4 mt-8">
             {" "}
             <input
-              className="btn btn-outline btn-success"
+              className="btn btn-outline w-full max-w-xs rounded-none bg-[#1b3764] text-white"
               value={"ADD PRODUCT"}
               type="submit"
             />

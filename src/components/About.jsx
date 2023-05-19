@@ -2,7 +2,10 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div
+      id="about"
+      className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+    >
       {" "}
       <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-red-900 uppercase rounded-full bg-teal-accent-400">
         Our Services
@@ -10,7 +13,7 @@ const About = () => {
       <h5
         data-aos="fade-right"
         data-aos-duration="3000"
-        className="mb-2 mb-8 text-4xl text-teal-900 font-extrabold leading-none md:pl-2"
+        className="mb-2  text-4xl text-teal-900 font-extrabold leading-none md:pl-2"
       >
         Why you choose
         <br className="hidden md:block" />

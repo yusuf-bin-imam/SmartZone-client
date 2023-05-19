@@ -21,18 +21,22 @@ const Hero = () => {
               device to the consumers.
             </p>
             <div className="flex flex-wrap justify-center">
-              <button
-                type="button"
-                className="px-8 py-3 m-2 text-lg font-semibold  bg-[#1b3764] dark:text-gray-50"
-              >
-                Get started
-              </button>
-              <button
-                type="button"
-                className="px-8 py-3 m-2 text-lg border  dark:border-gray-700 dark:text-gray-900"
-              >
-                Learn more
-              </button>
+              <a href="#brand">
+                <button
+                  type="button"
+                  className="px-8 py-3 m-2 text-lg font-semibold  bg-[#1b3764] dark:text-gray-50"
+                >
+                  Popular Brands
+                </button>
+              </a>
+              <a href="#about">
+                <button
+                  type="button"
+                  className="px-8 py-3 m-2 text-lg border  dark:border-gray-700 dark:text-gray-900"
+                >
+                  Learn more
+                </button>
+              </a>
             </div>
           </div>
         </div>

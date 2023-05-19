@@ -2,6 +2,10 @@ import React from "react";
 import { useContext } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../context/AuthProvider";
+import { FaCalendarTimes } from "react-icons/fa";
+import { ImUser } from "react-icons/im";
+import { TiLocation } from "react-icons/ti";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 const Product = ({ product, setDevice }) => {
   const navigate = useNavigate();
@@ -27,45 +31,42 @@ const Product = ({ product, setDevice }) => {
     <div>
       <div
         data-aos="fade-up"
-        className=" transition-shadow duration-300 bg-white rounded shadow-sm"
+        className=" transition-shadow duration-300  bg-white rounded shadow-sm"
       >
         <img src={img} className="object-cover w-full h-64" alt="" />
         <div className="p-5 border border-t-0">
-          <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-            <a
-              href="/"
-              className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
-              aria-label="Category"
-              title="traveling"
-            >
-              traveling
-            </a>
-            <span className="text-gray-600">— 28 Dec 2020</span>
-          </p>
-          <h1 className="inline-block font-serif mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700">
+          <h1 id="title" className="font-bold text-2xl">
             {name}
           </h1>
+          {/* <h1 className="inline-block font-serif mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700">
+            {name}
+          </h1> */}
           <div className="text-start">
-            <p className="mb-2 text-teal-700 font-bold font-sans">
-              Year Of Use : {yearOfUse}
+            <p className="mb-2 flex gap-2 font-bold">
+              <FaCalendarTimes className="text-lg rounded-full  mt-1" />
+              {yearOfUse}
             </p>
-            <p className="mb-2 font-bold  font-sans text-teal-700">
-              Orginal Price : {orginalPrice}
+            <p className="mb-2 flex gap-2 justify-between font-bold">
+              <span className="flex gap-2">
+                <TbCurrencyTaka className="text-xl bg-gray-800 rounded-full text-white mt-1 " />{" "}
+                {resalePrice}
+              </span>
+              <span className="line-through">{orginalPrice}</span>
             </p>
-            <p className="mb-2 font-bold  font-sans text-teal-700">
-              Resale Price : {resalePrice}
+
+            <p className="mb-2 flex gap-2  font-bold">
+              <ImUser className="text-xl bg-gray-800 rounded-full text-white mt-1" />
+              {sellerName}
             </p>
-            <p className="mb-2 font-bold  font-sans text-orange-700">
-              Seller Name : {sellerName}
-            </p>
-            <p className="mb-2 font-bold  font-sans text-yellow-500">
-              location : {location}
+            <p className="mb-2 flex  gap-2 font-bold">
+              <TiLocation className="text-xl bg-gray-800 rounded-full text-white mt-1" />
+              {location}
             </p>
           </div>
           <label
             onClick={handleBookNow}
             htmlFor="Booking-modal"
-            className="btn-success px-24 btn"
+            className="btn  w-full rounded-none bg-[#1b3764]"
           >
             Book now
           </label>

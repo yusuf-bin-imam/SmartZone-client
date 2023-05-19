@@ -17,7 +17,7 @@ const Category = ({ categories }) => {
             id="title"
             className="text-4xl   font-bold text-teal-900"
           >
-            Brand
+            Popular Brands
           </h2>
           <p
             data-aos="fade-up"
@@ -25,7 +25,7 @@ const Category = ({ categories }) => {
             id="txt"
             className="text-md mt-2 text-black font-bold"
           >
-            Select your preferred brand
+            Select your preferred brand of smartphone
           </p>
           <div
             data-aos="fade-up"

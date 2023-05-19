@@ -1,15 +1,19 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { authContext } from "../../context/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
+import Loader from "../Loader";
 
 const MyOrders = () => {
   const { user } = useContext(authContext);
 
+  const [loading, setLoading] = useState(true);
+
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
+      setLoading(true);
       const res = await fetch(
-        `https://assignment-12-server-redeye75.vercel.app/bookings?email=${user?.email}`,
+        `http://localhost:5000/bookings/email?email=${user?.email}`,
         {
           // headers: {
           //   authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -17,9 +21,13 @@ const MyOrders = () => {
         }
       );
       const data = await res.json();
+      setLoading(false);
       return data;
     },
   });
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div>
@@ -30,22 +38,28 @@ const MyOrders = () => {
         Verify your order before making payment
       </p>
       <div className="overflow-x-auto mt-5 w-full">
-        <table className="table w-full">
+        <table className=" w-full">
           <thead>
-            <tr>
-              <th>Orders</th>
-              <th>Device Info</th>
-              <th>Payment</th>
-              <th></th>
+            <tr className="bg-[#1b3764]  ">
+              <th className="w-1/2 text-start pl-20  border-l border-transparent py-4  text-lg font-semibold text-white lg:py-7 ">
+                Orders
+              </th>
+
+              {/* <th className="w-1/3 border-l border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 ">
+                Device Info
+              </th> */}
+              <th className="w-1/2 border-l border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
+                Payment
+              </th>
             </tr>
           </thead>
           <tbody id="txt" className="font-bold">
             {bookings &&
               bookings?.map((book, i) => (
                 <tr key={book?._id}>
-                  <th>{i + 1}</th>
                   <td>
-                    <div className="flex items-center space-x-3">
+                    <div className="flex m-5 items-center space-x-3 ">
+                      <p>{i + 1}</p>
                       <div className="avatar">
                         <div className="rounded w-12 h-12">
                           <img alt="" src={book?.photo} />
@@ -53,18 +67,14 @@ const MyOrders = () => {
                       </div>{" "}
                       <td>
                         <p className="font-bold"> {book?.deviceName}</p>
-                        <br />
+                        <p className="font-bold text-start ">{book?.price}</p>
                       </td>
                     </div>
                   </td>
-                  {/* <td>
-                    {book?.deviceName}
-                    <br />
-                  </td> */}
-                  <td>{book?.price}</td>
+
                   <th>
-                    <button className="btn  btn-outline btn-secondary ">
-                      Pay
+                    <button className="btn  btn-outline w-32 rounded-none ">
+                      Checkout
                     </button>
                   </th>
                 </tr>

@@ -55,7 +55,7 @@ const AllProduct = () => {
     <div>
       <h4>all products : {products?.length}</h4>
       <div className="overflow-x-auto">
-        <table className="table w-full">
+        <table className=" w-full">
           <thead>
             <tr>
               <th></th>
