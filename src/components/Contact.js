@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
 import contact from "../../src/assets/contact.json";
 import Lottie from "lottie-react";
+import emailjs from "@emailjs/browser";
 
 import { BsFillSendFill } from "react-icons/bs";
+import { toast } from "react-hot-toast";
+import { authContext } from "../context/AuthProvider";
 
 const Contact = () => {
+  const { user } = useContext(authContext);
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        `${process.env.REACT_APP_EMAILJS_SERVICE_ID}`,
+        `${process.env.REACT_APP_EMAILJS_TEMPLATE_ID}`,
+        form.current,
+        "FmqreMkLnogSjg1Zs"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          toast.success("Message sent successfully");
+        },
+        (error) => {
+          console.log(error.text);
+          toast.error("Opps..! message not send");
+        }
+      );
+  };
+
   return (
     <div>
       <div className="mt-20 max-w-screen-xl mx-auto">
@@ -36,8 +64,7 @@ const Contact = () => {
                   loop={true}
                 ></Lottie>
               </div>
-              <form>
-                {/* ref={form} onSubmit={sendEmail} */}
+              <form ref={form} onSubmit={sendEmail}>
                 <div class="mt-20 mx-auto">
                   <div class="space-y-3">
                     <div data-aos="fade-right" data-aos-duration="1500">
@@ -46,6 +73,7 @@ const Contact = () => {
                         id="inputTxt"
                         placeholder="Enter your name"
                         name="user_name"
+                        defaultValue={user?.displayName}
                         required
                         class="w-full border-black border-2 py-3 px-3 rounded"
                       />
@@ -54,8 +82,9 @@ const Contact = () => {
                       <input
                         type="text"
                         id="inputTxt"
-                        placeholder="Enter your name"
-                        name="user_name"
+                        placeholder="Enter your Email"
+                        name="user_email"
+                        defaultValue={user?.email}
                         required
                         class="w-full border-black border-2 py-3 px-3 rounded"
                       />
@@ -68,8 +97,6 @@ const Contact = () => {
                         required
                         placeholder="Additional details"
                         class="w-full border-black border-2 py-5 px-3 rounded"
-                        data-gramm="false"
-                        wt-ignore-input="true"
                       ></textarea>
                     </div>
                   </div>
