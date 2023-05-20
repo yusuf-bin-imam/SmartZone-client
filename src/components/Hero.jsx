@@ -29,7 +29,7 @@ const Hero = () => {
                   Popular Brands
                 </button>
               </a>
-              <a href="#about">
+              <a href="#contact">
                 <button
                   type="button"
                   className="px-8 py-3 m-2 text-lg border  dark:border-gray-700 dark:text-gray-900"

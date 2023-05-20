@@ -25,9 +25,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   // update profile
-  const updateUserProfile = (userInfo) => {
-    return updateProfile(auth.currentUser, userInfo);
+  const updateUserProfile = (name, photoURL) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photoURL,
+    });
   };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user?.email}`)
+      .then((res) => res.json)
+      .then((data) => console.log(data));
+  }, [user?.email]);
 
   const providerLogin = (provider) => {
     return signInWithPopup(auth, provider);

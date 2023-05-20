@@ -19,7 +19,7 @@ const Faq = () => {
             loop={true}
           ></Lottie>
         </div>
-        <div class="min-h-screen">
+        <div class="">
           <details
             class="group [&_summary::-webkit-details-marker]:hidden"
             open

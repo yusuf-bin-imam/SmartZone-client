@@ -48,9 +48,6 @@ export default function Example() {
           <NavLink style={navStyle} to={"/blog"}>
             Blogs
           </NavLink>
-          <NavLink style={navStyle} to={"/contact"}>
-            Contact
-          </NavLink>
         </>
       ) : (
         <>
@@ -62,9 +59,6 @@ export default function Example() {
           </NavLink>
           <NavLink style={navStyle} to={"/blog"}>
             Blogs
-          </NavLink>
-          <NavLink style={navStyle} to={"/contact"}>
-            Contact
           </NavLink>
         </>
       )}

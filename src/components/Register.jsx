@@ -24,11 +24,12 @@ const Register = () => {
     const form = event.target;
     const email = form.email.value;
     const password = event.target.password.value;
-    const name = form.name.value;
+    const name = form.Username.value;
     const role = form.role.value;
     const photo = form.photo.files[0];
     const number = form.number.value;
     // console.log(email, role, password, name, photo);
+    console.log(name);
 
     const formData = new FormData();
     formData.append("image", photo);
@@ -44,23 +45,14 @@ const Register = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data?.data?.display_url);
+        const photoURL = data?.data.display_url;
 
         createUser(email, password)
           .then((result) => {
             const user = result.user;
             console.log(user);
-
-            const userInfo = {
-              displayName: name,
-              photoURL: data?.data?.display_url,
-              phoneNumber: number,
-            };
-
-            updateUserProfile(userInfo)
-              .then(() => {
-                saveUser(name, email, number, role);
-              })
-              .catch((e) => console.error(e));
+            updateUserDetails(name, photoURL);
+            saveUser(name, email, role);
           })
           .catch((error) => console.log(error));
       })
@@ -69,10 +61,17 @@ const Register = () => {
     console.log(formData);
   };
 
+  const updateUserDetails = (name, photoURL) => {
+    updateUserProfile(name, photoURL)
+      .then(() => {
+        alert("successfully update profile");
+      })
+      .catch((e) => console.log(e));
+  };
   const saveUser = (name, email, role) => {
     const user = { name, email, role };
 
-    fetch(`https://smartzone-server.onrender.com/users`, {
+    fetch(`http://localhost:5000/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -96,6 +95,20 @@ const Register = () => {
       })
       .catch((error) => console.error(error));
   };
+  const hit = () => {
+    const hitted = {
+      hitName: "Hasan",
+    };
+    fetch(`http://localhost:5000/hit`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(hitted),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div className="min-h-screen">
       <section className="max-w-screen-lg min-h-screen mt-5 mx-auto ">
@@ -113,7 +126,7 @@ const Register = () => {
               animationData={register}
               loop={true}
             ></Lottie>
-
+            <button onClick={hit}>hit button</button>
             <div
               // data-aos="fade-up"
               data-aos-duration="3000"
@@ -123,9 +136,8 @@ const Register = () => {
                 <div>
                   <input
                     type="text"
-                    name="name"
+                    name="Username"
                     required
-                    id="name"
                     placeholder="Enter your name"
                     className="block w-full px-5  py-3 border mb-5 rounded border-[#1b3764]"
                   />

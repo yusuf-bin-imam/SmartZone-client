@@ -6,6 +6,8 @@ import heroImage from "../../src/assets/smartzone hero image.jpg";
 import Hero from "./Hero";
 import Faq from "./Faq";
 
+import Contact from "./Contact";
+
 const Home = () => {
   const [categories, setCategories] = useState([]);
 
@@ -22,7 +24,10 @@ const Home = () => {
       <Hero />
       <Category categories={categories} />
       <Faq />
+
       <About />
+
+      <Contact />
     </div>
   );
 };

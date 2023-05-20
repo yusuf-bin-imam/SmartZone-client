@@ -18,6 +18,7 @@ import SellerRoute from "./SellerRoute";
 import Profile from "../components/Profile";
 import MyProducts from "../components/DashBoardInfo/MyProducts";
 import Faq from "../components/Faq";
+import Contact from "../components/Contact";
 
 const router = createBrowserRouter([
   {
@@ -36,10 +37,10 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/myProfile", element: <Profile /> },
       { path: "/faq", element: <Faq /> },
-      // {
-      //   path: "/contact",
-      //   element: <ContactUs />,
-      // },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
       {
         path: "/product/:id",
         element: <CategoryProducts />,
