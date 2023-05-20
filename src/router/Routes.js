@@ -19,6 +19,7 @@ import Profile from "../components/Profile";
 import MyProducts from "../components/DashBoardInfo/MyProducts";
 import Faq from "../components/Faq";
 import Contact from "../components/Contact";
+import MyProfile from "../components/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/register", element: <Register /> },
-      { path: "/myProfile", element: <Profile /> },
+      // { path: "/myProfile", element: <Profile /> },
+      { path: "/myProfile", element: <MyProfile /> },
       { path: "/faq", element: <Faq /> },
       {
         path: "/contact",

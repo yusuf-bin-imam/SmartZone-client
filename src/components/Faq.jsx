@@ -1,11 +1,11 @@
 import React from "react";
 import Lottie from "lottie-react";
-import { TfiAngleUp, TfiAngleDown } from "react-icons/tfi";
+import { TfiAngleDown } from "react-icons/tfi";
 import faq from "../../src/assets/faq.json";
 const Faq = () => {
   return (
     <div className="max-w-screen-xl mx-auto">
-      <h4 id="title" className="mt-5 text-4xl font-bold  text-teal-900 mb-2">
+      <h4 id="title" className="mt-5  text-4xl font-bold  text-teal-900 mb-2">
         Faq
       </h4>
       <p id="txt" className="font-bold">

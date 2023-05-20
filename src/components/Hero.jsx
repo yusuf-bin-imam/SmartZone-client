@@ -9,7 +9,7 @@ const Hero = () => {
           <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-900">
             <h1
               id="title"
-              className="text-5xl text-extrabold text-purple-800 font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-900"
+              className="text-5xl text-extrabold  font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-900"
             >
               Smarter, Safer & Smoother
             </h1>
@@ -24,7 +24,7 @@ const Hero = () => {
               <a href="#brand">
                 <button
                   type="button"
-                  className="px-8 py-3 m-2 text-lg font-semibold  bg-[#1b3764] dark:text-gray-50"
+                  className="px-8 py-3 m-2 text-lg font-semibold  bg-[#1b3764] text-white"
                 >
                   Popular Brands
                 </button>
@@ -32,7 +32,7 @@ const Hero = () => {
               <a href="#contact">
                 <button
                   type="button"
-                  className="px-8 py-3 m-2 text-lg border  dark:border-gray-700 dark:text-gray-900"
+                  className="px-8 py-3 m-2 text-lg border-2 border-gray-300 dark:text-gray-900"
                 >
                   Contact Us
                 </button>

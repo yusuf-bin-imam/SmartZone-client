@@ -47,7 +47,7 @@ const AddAProduct = () => {
           };
           console.log(product);
 
-          fetch(`https://smartzone-server.onrender.com/products`, {
+          fetch(`http://localhost:5000/products`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -60,6 +60,10 @@ const AddAProduct = () => {
               console.log(result);
               reset();
               toast.success("Inserted product successfully");
+            })
+            .catch((e) => {
+              console.log(e);
+              toast.error("error their");
             });
         }
       });

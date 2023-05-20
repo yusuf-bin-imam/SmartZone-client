@@ -38,14 +38,11 @@ const MyProducts = () => {
     queryKey: ["doctors"],
     queryFn: async () => {
       try {
-        const res = await fetch(
-          `https://smartzone-server.onrender.com/products`,
-          {
-            headers: {
-              // authorization: `bearer ${localStorage.getItem("accessToken")}`,
-            },
-          }
-        );
+        const res = await fetch(`http://localhost:5000/products`, {
+          headers: {
+            // authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        });
         const data = await res.json();
         return data;
       } catch (error) {}
