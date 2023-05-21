@@ -7,9 +7,11 @@ import emailjs from "@emailjs/browser";
 import { BsFillSendFill } from "react-icons/bs";
 import { toast } from "react-hot-toast";
 import { authContext } from "../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const { user } = useContext(authContext);
+  const navigate = useNavigate();
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -26,6 +28,7 @@ const Contact = () => {
         (result) => {
           console.log(result.text);
           toast.success("Message sent successfully");
+          navigate("/");
         },
         (error) => {
           console.log(error.text);
