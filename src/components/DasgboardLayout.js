@@ -80,7 +80,7 @@ const DasgboardLayout = () => {
                       id="title"
                       className="rounded-none font-bold"
                       style={navStyle}
-                      to={"/dashboard/allProduct"}
+                      to={"/dashboard/myProducts"}
                     >
                       <FaProductHunt />
                       My Products

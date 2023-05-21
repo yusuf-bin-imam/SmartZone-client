@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from "react";
-import contact from "../../src/assets/contact.json";
-import Lottie from "lottie-react";
+// import contact from "../../src/assets/contact.json";
+import contact from "../../src/assets/contactUs.json";
+import Lottie, { LottiePlayer } from "lottie-react";
 import emailjs from "@emailjs/browser";
 
 import { BsFillSendFill } from "react-icons/bs";
@@ -35,7 +36,7 @@ const Contact = () => {
 
   return (
     <div>
-      <div className="mt-20 max-w-screen-xl mx-auto">
+      <div className=" max-w-screen-xl mx-auto">
         <section id="contact">
           <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-12">
@@ -58,16 +59,23 @@ const Contact = () => {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div>
-                <Lottie
-                  className="w-full"
-                  animationData={contact}
-                  loop={true}
-                ></Lottie>
+                <lottie-player
+                  src="https://assets8.lottiefiles.com/packages/lf20_gaplvsns.json"
+                  background="transparent"
+                  speed="1"
+                  loop
+                  controls
+                  autoplay
+                ></lottie-player>
               </div>
               <form ref={form} onSubmit={sendEmail}>
-                <div class="mt-20 mx-auto">
+                <div
+                  // data-aos="fade-left"
+                  // data-aos-duration="1500"
+                  class="mt-40 mx-auto"
+                >
                   <div class="space-y-3">
-                    <div data-aos="fade-right" data-aos-duration="1500">
+                    <div>
                       <input
                         type="text"
                         id="inputTxt"
@@ -78,7 +86,7 @@ const Contact = () => {
                         class="w-full border-black border-2 py-3 px-3 rounded"
                       />
                     </div>
-                    <div data-aos="fade-left" data-aos-duration="1500">
+                    <div>
                       <input
                         type="text"
                         id="inputTxt"
@@ -90,7 +98,7 @@ const Contact = () => {
                       />
                     </div>
 
-                    <div data-aos="fade-up" data-aos-duration="1500">
+                    <div>
                       <textarea
                         id="inputTxt"
                         name="message"
@@ -102,8 +110,6 @@ const Contact = () => {
                   </div>
                 </div>
                 <button
-                  data-aos="fade-up"
-                  data-aos-duration="1500"
                   id="title"
                   className="btn btn-outline w-full max-w-xs rounded-none bg-[#1b3764] text-white"
                   // disabled={disable ? true : false}

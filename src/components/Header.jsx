@@ -1,4 +1,3 @@
-import { useState, useEffect, useContext } from "react";
 import {
   Navbar,
   MobileNav,
@@ -6,28 +5,40 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
+import { useState, useEffect, useContext } from "react";
+
 import { BiMenuAltRight } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../context/AuthProvider";
 import { RxCross2 } from "react-icons/rx";
 
 import noUser from "../../src/assets/default avater.png";
+import useAdmin from "../hooks/useAdmin";
+import useSeller from "../hooks/useSeller";
+import { FaBuysellads, FaProductHunt } from "react-icons/fa";
+import { SiSellfy } from "react-icons/si";
+import { BsCartCheckFill, BsDatabaseFillAdd } from "react-icons/bs";
 
-export default function Example() {
+const Header = () => {
   const { user, logOut } = useContext(authContext);
   console.log(user);
+
+  const [isAdmin] = useAdmin(user?.email);
+  const [isSeller] = useSeller(user?.email);
+
+  const [openNav, setOpenNav] = useState(false);
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})
       .catch((e) => console.error(e));
   };
+
   const navStyle = ({ isActive }) => {
     return {
       borderBottom: isActive ? "2px solid yellow" : "none",
     };
   };
-  const [openNav, setOpenNav] = useState(false);
-  console.log(openNav);
 
   const navList = (
     <nav
@@ -39,7 +50,11 @@ export default function Example() {
           <NavLink style={navStyle} to={"/"}>
             Home
           </NavLink>
-          <NavLink style={navStyle} to={"/dashboard"}>
+          <NavLink
+            className="hidden lg:block"
+            style={navStyle}
+            to={"/dashboard"}
+          >
             Dashboard
           </NavLink>
           <NavLink style={navStyle} to={"/faq"}>
@@ -47,6 +62,9 @@ export default function Example() {
           </NavLink>
           <NavLink style={navStyle} to={"/blog"}>
             Blogs
+          </NavLink>
+          <NavLink style={navStyle} to={"/contact"}>
+            Contact
           </NavLink>
         </>
       ) : (
@@ -62,6 +80,15 @@ export default function Example() {
           </NavLink>
         </>
       )}
+      {/* <NavLink style={navStyle} to={"/"}>
+        Home
+      </NavLink>
+      <NavLink style={navStyle} to={"/faq"}>
+        Faq
+      </NavLink>
+      <NavLink style={navStyle} to={"/blog"}>
+        Blogs
+      </NavLink> */}
     </nav>
   );
 
@@ -99,7 +126,7 @@ export default function Example() {
               >
                 <span>Log Out</span>
               </Button> */}
-              <div className="dropdown  dropdown-hover">
+              <div className="dropdown flex justify-between  dropdown-hover">
                 <label tabIndex={0}>
                   <img
                     className="w-12 h-12 avatar mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
@@ -109,14 +136,15 @@ export default function Example() {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu p-2 shadow bg-[#1b3764] rounded-box w-52"
+                  className="dropdown-content mt-10  menu p-2 shadow bg-[#1b3764] rounded-box w-52"
                 >
                   <li>
                     <NavLink to={"/myProfile"}>Profile</NavLink>
                   </li>
+
                   <li>
                     <button
-                      className="hidden text-start lg:inline-block"
+                      className=" text-start lg:inline-block"
                       onClick={handleLogOut}
                     >
                       LogOut
@@ -124,6 +152,111 @@ export default function Example() {
                   </li>
                 </ul>
               </div>
+              {user?.uid && (
+                <div className="dropdown block lg:hidden dropdown-hover">
+                  <label
+                    tabIndex={0}
+                    className="btn  bg-yellow-500 rounded m-1"
+                  >
+                    Dashboard
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content  menu p-2 -ml-14 shadow bg-[#1b3764] font-bold text-white rounded-box w-52"
+                  >
+                    {!isAdmin && !isSeller && (
+                      <>
+                        <li>
+                          <NavLink
+                            id="title"
+                            className="rounded-none font-bold"
+                            style={navStyle}
+                            to={"/dashboard/myOrders"}
+                          >
+                            <BsCartCheckFill />
+                            My Orders
+                          </NavLink>
+                        </li>
+                      </>
+                    )}
+                    {isSeller && (
+                      <>
+                        <li>
+                          <NavLink
+                            id="title"
+                            className="rounded-none font-bold"
+                            style={navStyle}
+                            to={"/dashboard/myOrders"}
+                          >
+                            <BsCartCheckFill />
+                            My Orders
+                          </NavLink>
+                        </li>
+                        <li className="  mt-2 ">
+                          <NavLink
+                            id="title"
+                            className="rounded-none font-bold"
+                            style={navStyle}
+                            to={"/dashboard/myProducts"}
+                          >
+                            <FaProductHunt />
+                            My Products
+                          </NavLink>
+                        </li>{" "}
+                        <li className="mt-2">
+                          <NavLink
+                            id="title"
+                            className="rounded-none font-bold"
+                            style={navStyle}
+                            to={"/dashboard/addProduct"}
+                          >
+                            <BsDatabaseFillAdd />
+                            Add Product
+                          </NavLink>
+                        </li>
+                      </>
+                    )}
+
+                    {isAdmin && (
+                      <>
+                        <li>
+                          <NavLink
+                            id="title"
+                            className="rounded-none font-bold"
+                            style={navStyle}
+                            to={"/dashboard/myOrders"}
+                          >
+                            <BsCartCheckFill />
+                            My Orders
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            id="title"
+                            className="rounded-none mt-2 font-bold"
+                            style={navStyle}
+                            to={"/dashboard/allSeller"}
+                          >
+                            <SiSellfy />
+                            All Sellers
+                          </NavLink>
+                        </li>{" "}
+                        <li>
+                          <NavLink
+                            id="title"
+                            className="rounded-none mt-2 font-bold"
+                            style={navStyle}
+                            to={"/dashboard/allBuyers"}
+                          >
+                            <FaBuysellads />
+                            All Buyers
+                          </NavLink>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+              )}
             </>
           ) : (
             <>
@@ -181,30 +314,16 @@ export default function Example() {
           onClick={() => setOpenNav(!openNav)}
         >
           {openNav ? (
-            <RxCross2 className="text-3xl text-black" />
+            <RxCross2 className="text-3xl text-white" />
           ) : (
-            <BiMenuAltRight className="text-3xl text-black" />
+            <BiMenuAltRight className="text-3xl text-white" />
           )}
         </IconButton>
       </div>
       <MobileNav className="lg:hidden " open={openNav}>
         {navList}
-        <Link to={"/login"}>
-          <Button
-            variant="gradient"
-            size="sm"
-            id="text"
-            className=" bg-[#2a2b2c] lg:hidden    py-3 px-10 "
-          >
-            <span>Sign In</span>
-          </Button>
-        </Link>
-        <Link to={"/register"}>
-          <Button className="py-3 block lg:hidden  mx-auto px-9 mt-3 ">
-            <span>Sign Up</span>
-          </Button>
-        </Link>
       </MobileNav>
     </Navbar>
   );
-}
+};
+export default Header;

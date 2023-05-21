@@ -3,10 +3,10 @@ import React, { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const BookingModal = ({ device, setDevice }) => {
-  // console.log(device);
-  const { user } = useContext(authContext);
+  console.log(device);
+  const { user, logUser } = useContext(authContext);
 
-  const { name, img, _id, resalePrice } = device;
+  const { image, productName, _id, resalePrice } = device;
 
   const handleBooking = (event) => {
     event.preventDefault();
@@ -17,13 +17,13 @@ const BookingModal = ({ device, setDevice }) => {
     // const device = form.device.value;
     const price = form.price.value;
     const phone = form.phone.value;
-    const location = form.location.value;
+    // const location = form.location.value;
 
     const booking = {
       userName,
       photo,
-      deviceName: name,
-      location,
+      deviceName: productName,
+      // location,
       price,
       email,
       phone,
@@ -41,9 +41,10 @@ const BookingModal = ({ device, setDevice }) => {
         console.log(data);
         if (data.acknowledged) {
           setDevice(null);
-          toast.success("Your booking is successfully confirmed");
+          toast.success("Booking successfully confirmed ");
         }
-      });
+      })
+      .catch((e) => console.log(e));
   };
   return (
     <div>
@@ -57,7 +58,7 @@ const BookingModal = ({ device, setDevice }) => {
             ✕
           </label>
           <h3 id="title" className="text-xl text-[#1b3764]  font-bold">
-            {name}
+            {productName}
           </h3>
           <form onSubmit={handleBooking}>
             <div>
@@ -79,7 +80,7 @@ const BookingModal = ({ device, setDevice }) => {
               <input
                 type="text"
                 name="image"
-                value={img}
+                value={image}
                 disabled
                 className="input mt-2 input-bordered border-black rounded w-full max-w-xs"
               />
@@ -94,15 +95,17 @@ const BookingModal = ({ device, setDevice }) => {
             <input
               type="text"
               name="phone"
+              defaultValue={logUser?.number}
+              disabled
               placeholder="Enter Number"
               className="input mb-2 input-bordered border-black rounded w-full max-w-xs"
             />
-            <input
+            {/* <input
               type="text"
               name="location"
               placeholder="Meeting Location"
               className="input mt-2 input-bordered border-black rounded w-full max-w-xs"
-            />
+            /> */}
             <br />
             <button
               type="submit"

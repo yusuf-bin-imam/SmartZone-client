@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import About from "./About";
 import Category from "./Category";
-import heroImage from "../../src/assets/smartzone hero image.jpg";
 import Hero from "./Hero";
 import Faq from "./Faq";
-
-import Contact from "./Contact";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -24,10 +20,8 @@ const Home = () => {
       <Hero />
       <Category categories={categories} />
       <Faq />
-
       <About />
-
-      <Contact />
+      {/* <Contact /> */}
     </div>
   );
 };

@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import ConfirmationModal from "../ConfirmationModal";
 import Loader from "../Loader";
 import { AiFillDelete } from "react-icons/ai";
+import { authContext } from "../../context/AuthProvider";
 
 const MyProducts = () => {
+  const { user } = useContext(authContext);
   const [dltProduct, setDltProduct] = useState(null);
 
   // delete product
@@ -35,14 +37,17 @@ const MyProducts = () => {
     isLoading,
     refetch,
   } = useQuery({
-    queryKey: ["doctors"],
+    queryKey: ["products"],
     queryFn: async () => {
       try {
-        const res = await fetch(`http://localhost:5000/products`, {
-          headers: {
-            // authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          },
-        });
+        const res = await fetch(
+          `https://smartzone-server.onrender.com/myProducts/${user?.email}`,
+          {
+            headers: {
+              // authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
         const data = await res.json();
         return data;
       } catch (error) {}
@@ -81,9 +86,9 @@ const MyProducts = () => {
               // console.log(product)
               <tr key={product._id}>
                 <td>
-                  <div className="m-5">
+                  <div className="m-5 font-bold">
                     <div className="flex gap-2">
-                      <div>
+                      <div className="flex gap-1">
                         <img
                           alt="ProductImage"
                           src={product?.image}

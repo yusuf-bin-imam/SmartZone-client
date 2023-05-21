@@ -1,5 +1,6 @@
 import React from "react";
 import heroImage from "../../src/assets/smartphone 1.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -29,14 +30,23 @@ const Hero = () => {
                   Popular Brands
                 </button>
               </a>
-              <a href="#contact">
+              <Link to={"/contact"}>
                 <button
                   type="button"
                   className="px-8 py-3 m-2 text-lg border-2 border-gray-300 dark:text-gray-900"
                 >
                   Contact Us
                 </button>
-              </a>
+              </Link>
+
+              {/* <a href="#contact">
+                <button
+                  type="button"
+                  className="px-8 py-3 m-2 text-lg border-2 border-gray-300 dark:text-gray-900"
+                >
+                  Contact Us
+                </button>
+              </a> */}
             </div>
           </div>
         </div>

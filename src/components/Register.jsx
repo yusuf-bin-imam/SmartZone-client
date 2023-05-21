@@ -6,6 +6,7 @@ import Lottie from "lottie-react";
 import { FcGoogle } from "react-icons/fc";
 import useToken from "../hooks/useToken";
 import register from "../../src/assets/register.json";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
   const { createUser, updateUserProfile, providerLogin } =
@@ -29,7 +30,7 @@ const Register = () => {
     const photo = form.photo.files[0];
     const number = form.number.value;
     // console.log(email, role, password, name, photo);
-    console.log(name);
+    // console.log(name);
 
     const formData = new FormData();
     formData.append("image", photo);
@@ -52,7 +53,7 @@ const Register = () => {
             const user = result.user;
             console.log(user);
             updateUserDetails(name, photoURL);
-            saveUser(name, email, role);
+            saveUser(name, email, role, number);
           })
           .catch((error) => console.log(error));
       })
@@ -64,14 +65,15 @@ const Register = () => {
   const updateUserDetails = (name, photoURL) => {
     updateUserProfile(name, photoURL)
       .then(() => {
-        alert("successfully update profile");
+        toast.success("sign up successfully");
+        // alert("successfully update profile");
       })
       .catch((e) => console.log(e));
   };
-  const saveUser = (name, email, role) => {
-    const user = { name, email, role };
+  const saveUser = (name, email, role, number) => {
+    const user = { name, email, role, number };
 
-    fetch(`http://localhost:5000/users`, {
+    fetch(`https://smartzone-server.onrender.com/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -95,23 +97,10 @@ const Register = () => {
       })
       .catch((error) => console.error(error));
   };
-  const hit = () => {
-    const hitted = {
-      hitName: "Hasan",
-    };
-    fetch(`http://localhost:5000/hit`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(hitted),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
+
   return (
-    <div className="min-h-screen">
-      <section className="max-w-screen-lg min-h-screen mt-5 mx-auto ">
+    <div className="">
+      <section className="max-w-screen-lg min-h-screen mb-10 mt-5 mx-auto ">
         <div className="px-6 h-full text-gray-800">
           <h2 id="title" className="text-4xl font-bold">
             Sign Up
@@ -126,7 +115,7 @@ const Register = () => {
               animationData={register}
               loop={true}
             ></Lottie>
-            <button onClick={hit}>hit button</button>
+
             <div
               // data-aos="fade-up"
               data-aos-duration="3000"

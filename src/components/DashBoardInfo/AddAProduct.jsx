@@ -6,7 +6,8 @@ import { authContext } from "../../context/AuthProvider";
 import Loader from "../Loader";
 
 const AddAProduct = () => {
-  const { user } = useContext(authContext);
+  const { user, logUser } = useContext(authContext);
+  // console.log(user);
   const {
     register,
     handleSubmit,
@@ -43,11 +44,13 @@ const AddAProduct = () => {
             condition: data.condition,
             brand: data.brand,
             image: imgData.data.url,
+            sellerName: user?.displayName,
             email: user?.email,
+            sellerNumber: logUser?.number,
           };
           console.log(product);
 
-          fetch(`http://localhost:5000/products`, {
+          fetch(`https://smartzone-server.onrender.com/products`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -59,11 +62,11 @@ const AddAProduct = () => {
             .then((result) => {
               console.log(result);
               reset();
-              toast.success("Inserted product successfully");
+              toast.success("Inserted product successfully ✅");
             })
             .catch((e) => {
               console.log(e);
-              toast.error("error their");
+              toast.error("An internal mistake has occurred!😥");
             });
         }
       });
@@ -103,6 +106,7 @@ const AddAProduct = () => {
                   required: "Name is required",
                 })}
                 placeholder="Seller Name"
+                readOnly
                 id="name"
                 className=" border border-[#1b3764] rounded py-3 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
               />
@@ -183,6 +187,8 @@ const AddAProduct = () => {
                 })}
                 required
                 id="job"
+                defaultValue={logUser.number}
+                readOnly
                 className=" border border-[#1b3764] rounded py-3 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full"
                 placeholder="Mobile Number"
               />
@@ -271,8 +277,9 @@ const AddAProduct = () => {
                 required: "required",
               })}
               required
+              maxlength="40"
               className="textarea w-full h-20   rounded border-[#1b3764] text-black"
-              placeholder="Describe about your Products*"
+              placeholder="Describe products in 40 letter"
             ></textarea>
 
             {/* {errors.condition && (

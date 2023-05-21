@@ -21,12 +21,13 @@ const Product = ({ product, setDevice }) => {
   };
   const {
     resalePrice,
-    name,
+    productName,
     yearOfUse,
-    sellerName,
-    location,
+    sellerNumber,
+    condition,
     orginalPrice,
-    img,
+    image,
+    brand,
   } = product;
   return (
     <div>
@@ -34,40 +35,25 @@ const Product = ({ product, setDevice }) => {
         data-aos="fade-up"
         className=" transition-shadow duration-300  bg-white rounded shadow-sm"
       >
-        <img src={img} className="object-cover w-full h-64" alt="" />
-        <div className="p-5 border border-t-0">
-          <h1 id="title" className="font-bold text-2xl">
-            {name}
+        <img src={image} className=" w-full h-64" alt="" />
+        <div className="p-5 space-y-2 border border-t-0">
+          <p className="font-bold">{brand}</p>
+          <h1 id="title" className="font-bold text-start text-2xl">
+            {productName}
           </h1>
-          {/* <h1 className="inline-block font-serif mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700">
-            {name}
-          </h1> */}
-          <div className="text-start">
-            <p className="mb-2 flex gap-2 font-bold">
-              <FaCalendarTimes className="text-lg rounded-full  mt-1" />
-              {yearOfUse}
-            </p>
-            <p className="mb-2 flex gap-2 justify-between font-bold">
-              <span className="flex gap-2">
-                <TbCurrencyTaka className="text-xl bg-gray-800 rounded-full text-white mt-1 " />{" "}
-                {resalePrice}
-              </span>
+          <h1 className="font-bold text-start">{sellerNumber}</h1>
+          <div className="text-start font-bold">
+            {yearOfUse}
+            <p className="mb-2 flex gap-2 mt-2 justify-between font-bold">
+              {resalePrice}
               <span className="line-through">{orginalPrice}</span>
             </p>
-
-            <p className="mb-2 flex gap-2  font-bold">
-              <ImUser className="text-xl bg-gray-800 rounded-full text-white mt-1" />
-              {sellerName}
-            </p>
-            <p className="mb-2 flex  gap-2 font-bold">
-              <TiLocation className="text-xl bg-gray-800 rounded-full text-white mt-1" />
-              {location}
-            </p>
+            <p className="text-start">{condition.slice(0, 40)}...</p>
           </div>
           <label
             onClick={handleBookNow}
             htmlFor="Booking-modal"
-            className="btn  w-full rounded-none bg-[#1b3764]"
+            className="btn  w-2/3 btn-outline text-white font-bold rounded-none bg-[#1b3764]"
           >
             Book now
           </label>

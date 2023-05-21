@@ -15,20 +15,22 @@ const ConfirmationModal = ({
       <div className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg">{title}</h3>
-          <p className="py-4 text-red-500 font-bold">{message} !</p>
+          {/* <p className="py-4 rounded-none text-red-800 font-bold">
+            {message} !
+          </p> */}
           <div className="modal-action">
             <label
               onClick={() => {
                 deleteProduct(modalData);
               }}
               htmlFor="confirmation modal"
-              className="btn btn-warning btn-outline"
+              className="btn rounded-none w-1/3 bg-red-800 text-white btn-outline"
             >
               {deleteButton}
             </label>
             <button
               onClick={cancelDelete}
-              className="btn btn-success btn-outline"
+              className="btn rounded-none w-1/3 bg-green-800 text-white btn-outline"
             >
               Cancel
             </button>

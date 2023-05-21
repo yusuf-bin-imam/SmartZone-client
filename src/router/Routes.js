@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
-      { path: "/home", element: <Home /> },
+      // { path: "/", element: <Home /> },
       { path: "/about", element: <About /> },
       { path: "/blog", element: <Blog /> },
       { path: "/login", element: <Login /> },
@@ -44,10 +44,12 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/product/:brand",
+        path: "/products/:brand",
         element: <CategoryProducts />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`)
+          fetch(
+            `https://smartzone-server.onrender.com/products/${params.brand}`
+          )
             .then((res) => res.json())
             .then((data) => data),
       },
@@ -79,7 +81,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/allProduct",
+        path: "/dashboard/myProducts",
         element: (
           <SellerRoute>
             <MyProducts />
