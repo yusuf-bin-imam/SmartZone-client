@@ -67,7 +67,7 @@ const Contact = () => {
                   background="transparent"
                   speed="1"
                   loop
-                  controls
+                  // controls
                   autoplay
                 ></lottie-player>
               </div>
@@ -75,7 +75,7 @@ const Contact = () => {
                 <div
                   // data-aos="fade-left"
                   // data-aos-duration="1500"
-                  class="mt-40 mx-auto"
+                  class="mt-0 lg:mt-40 mx-auto"
                 >
                   <div class="space-y-3">
                     <div>

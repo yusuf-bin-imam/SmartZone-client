@@ -30,7 +30,7 @@ const Category = ({ categories }) => {
           <div
             data-aos="fade-up"
             data-aos-duration="1500"
-            className="   grid lg:grid-cols-3 gap-y-0 md:grid-cols-2 place-items-center text-center"
+            className="   grid lg:grid-cols-3  md:grid-cols-2 place-items-center text-center"
           >
             {categories?.map((category) => (
               <CategoryDevices key={category?.categoryId} category={category} />

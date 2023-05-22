@@ -20,6 +20,7 @@ import MyProducts from "../components/DashBoardInfo/MyProducts";
 import Faq from "../components/Faq";
 import Contact from "../components/Contact";
 import MyProfile from "../components/MyProfile";
+import Dashboard from "../components/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -47,9 +48,7 @@ const router = createBrowserRouter([
         path: "/products/:brand",
         element: <CategoryProducts />,
         loader: ({ params }) =>
-          fetch(
-            `https://smartzone-server.onrender.com/products/${params.brand}`
-          )
+          fetch(`http://localhost:5000/products/${params.brand}`)
             .then((res) => res.json())
             .then((data) => data),
       },
@@ -68,6 +67,10 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
       {
         path: "/dashboard/myOrders",
         element: <MyOrders />,
