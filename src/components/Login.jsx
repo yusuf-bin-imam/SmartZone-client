@@ -35,6 +35,7 @@ const Login = () => {
         const user = result.user;
         // console.log(user);
         setLoginEmail(data.email);
+        navigate("/");
       })
       .catch((error) => {
         setError(error.message);
@@ -47,6 +48,7 @@ const Login = () => {
       .then((r) => {
         const user = r.user;
         console.log(user);
+        navigate("/");
       })
       .catch((e) => console.error(e));
   };
@@ -95,7 +97,7 @@ const Login = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="w-full py-3 font-bold bg-[#1b3764] text-white"
+                    className="w-full btn btn-outline rounded-none py-3 font-bold bg-[#1b3764] text-white"
                   >
                     Login
                   </button>
@@ -106,7 +108,7 @@ const Login = () => {
                     You don't have any Account ?
                     <Link
                       to={"/register"}
-                      className="text-red-600  hover:text-green-700 focus:text-green-700 transition duration-200 ease-in-out"
+                      className="text-red-600 ml-5 hover:text-green-700 focus:text-green-700 transition duration-200 ease-in-out"
                     >
                       Sign Up
                     </Link>

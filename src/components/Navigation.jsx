@@ -21,7 +21,7 @@ const Navigation = () => {
               src="https://www.shareicon.net/data/128x128/2015/09/25/107069_apple_512x512.png"
               alt=""
             />
-            <span className="ml-3 text-teal-600 font-serif text-3xl xl:block lg:hidden">
+            <span className="ml-3 text-[#1b3764] font-serif text-3xl xl:block lg:hidden">
               <Link to={"/"}>
                 <strong>SmartZone</strong>
               </Link>

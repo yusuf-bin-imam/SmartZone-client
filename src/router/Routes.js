@@ -48,7 +48,9 @@ const router = createBrowserRouter([
         path: "/products/:brand",
         element: <CategoryProducts />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.brand}`)
+          fetch(
+            `https://smartzone-server.onrender.com/products/${params.brand}`
+          )
             .then((res) => res.json())
             .then((data) => data),
       },

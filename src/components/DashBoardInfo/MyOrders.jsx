@@ -31,9 +31,11 @@ const MyOrders = () => {
 
   return (
     <div>
-      <h1 id="title" className="text-4xl font-bold  text-teal-600 m-2">
+      <h1 id="title" className="text-4xl font-bold  text-[#1b3764] m-2">
         My Orders
       </h1>
+      {/* <div class=" w-20 mx-auto  border-b-8 border-yellow-300 "></div> */}
+
       <p id="txt" className="font-bold ">
         Verify your order before making payment
       </p>
@@ -44,10 +46,6 @@ const MyOrders = () => {
               <th className="w-1/2 text-start pl-20  border-l border-transparent py-4  text-lg font-semibold text-white lg:py-7 ">
                 Orders
               </th>
-
-              {/* <th className="w-1/3 border-l border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 ">
-                Device Info
-              </th> */}
               <th className="w-1/2 border-l border-transparent py-4 px-3 text-lg font-semibold text-white lg:py-7 lg:px-4">
                 Payment
               </th>

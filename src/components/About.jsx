@@ -6,14 +6,10 @@ const About = () => {
       id="about"
       className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
     >
-      {" "}
-      <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-red-900 uppercase rounded-full bg-teal-accent-400">
-        Our Services
-      </p>
       <h5
         data-aos="fade-right"
         data-aos-duration="3000"
-        className="mb-2  text-4xl text-teal-900 font-extrabold leading-none md:pl-2"
+        className="mb-2  text-4xl text[#1b3764] font-extrabold leading-none md:pl-2"
       >
         Why you choose
         <br className="hidden md:block" />
@@ -22,7 +18,7 @@ const About = () => {
       <div
         data-aos="fade-up"
         data-aos-duration="3000"
-        className="grid gap-3 row-gap-3 font-bold text-blue-700 lg:grid-cols-3"
+        className="grid gap-3 row-gap-3 mt-20 font-bold  lg:grid-cols-3"
       >
         <ul id="text" className="space-y-3">
           <li id="text" className="flex items-start">

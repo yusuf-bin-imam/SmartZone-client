@@ -14,7 +14,7 @@ import {
 import { FaBuysellads, FaProductHunt } from "react-icons/fa";
 
 const DasgboardLayout = () => {
-  const { user } = useContext(authContext);
+  const { user, logUser } = useContext(authContext);
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);
 
@@ -47,7 +47,22 @@ const DasgboardLayout = () => {
               className="drawer-overlay"
             ></label>
             <ul className="menu p-4 w-64 mt-4 text-base-content">
-              {!isAdmin && !isSeller && (
+              {/* {!isAdmin && !isSeller && (
+                <>
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/myOrders"}
+                    >
+                      <BsCartCheckFill />
+                      My Orders
+                    </NavLink>
+                  </li>
+                </>
+              )} */}
+              {logUser?.role === "buyer" && (
                 <>
                   <li>
                     <NavLink
@@ -62,7 +77,7 @@ const DasgboardLayout = () => {
                   </li>
                 </>
               )}
-              {isSeller && (
+              {logUser?.role === "seller" && (
                 <>
                   <li>
                     <NavLink
@@ -100,7 +115,45 @@ const DasgboardLayout = () => {
                 </>
               )}
 
-              {isAdmin && (
+              {/* {isSeller && (
+                <>
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/myOrders"}
+                    >
+                      <BsCartCheckFill />
+                      My Orders
+                    </NavLink>
+                  </li>
+                  <li className="  mt-2 ">
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/myProducts"}
+                    >
+                      <FaProductHunt />
+                      My Products
+                    </NavLink>
+                  </li>{" "}
+                  <li className="mt-2">
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/addProduct"}
+                    >
+                      <BsDatabaseFillAdd />
+                      Add Product
+                    </NavLink>
+                  </li>
+                </>
+              )} */}
+
+              {logUser?.role === "admin" && (
                 <>
                   <li>
                     <NavLink
@@ -137,6 +190,44 @@ const DasgboardLayout = () => {
                   </li>
                 </>
               )}
+
+              {/* {isAdmin && (
+                <>
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none font-bold"
+                      style={navStyle}
+                      to={"/dashboard/myOrders"}
+                    >
+                      <BsCartCheckFill />
+                      My Orders
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none mt-2 font-bold"
+                      style={navStyle}
+                      to={"/dashboard/allSeller"}
+                    >
+                      <SiSellfy />
+                      All Sellers
+                    </NavLink>
+                  </li>{" "}
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none mt-2 font-bold"
+                      style={navStyle}
+                      to={"/dashboard/allBuyers"}
+                    >
+                      <FaBuysellads />
+                      All Buyers
+                    </NavLink>
+                  </li>
+                </>
+              )} */}
             </ul>
           </div>
         </div>

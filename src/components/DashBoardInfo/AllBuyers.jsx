@@ -1,10 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import ConfirmationModal from "../ConfirmationModal";
 import { AiFillDelete } from "react-icons/ai";
+import { authContext } from "../../context/AuthProvider";
 
 const AllBuyers = () => {
+  const { user } = useContext(authContext);
+  console.log(user);
   const [dltBuyer, setDltBuyer] = useState(null);
 
   // delete buyer
@@ -54,7 +57,7 @@ const AllBuyers = () => {
       <table className="mt-5 w-full">
         <thead>
           <tr className="bg-[#1b3764]  ">
-            <th className="w-1/2 text-center  border-l border-transparent py-4  text-lg font-semibold text-white lg:py-7 ">
+            <th className="w-1/2   border-l border-transparent py-4  text-lg font-semibold text-white lg:py-7 ">
               Name
             </th>
 
@@ -63,27 +66,22 @@ const AllBuyers = () => {
             </th>
           </tr>
         </thead>
-        {users?.map((user, i) => (
-          <tbody key={user?._id}>
+        {users?.map((singleUser, i) => (
+          <tbody key={singleUser?._id}>
             <tr>
               {/* <th>{i + 1}</th> */}
-              <td className="font-bold w-1/2 ">
-                {/* <p>
-                  <p className="uppercase ">{user?.name}</p>
-                  <p>{user?.email}</p>
-                </p> */}
-
-                <p className=" font-bold">
-                  <p className="text-center  mx-10 my-3 uppercase">
-                    {user?.name}
+              <td className="font-bold px-4 justify-center text-center gap-3 flex items-center  ">
+                <p className="font-bold">
+                  <p className=" text-start  my-3 uppercase">
+                    {singleUser?.name}
                   </p>
-                  <p className="text-center mx-10 my-3">{user?.email}</p>
+                  <p className="text-center  my-3">{singleUser?.email}</p>
                 </p>
               </td>
 
               <td>
                 <label
-                  onClick={() => setDltBuyer(user)}
+                  onClick={() => setDltBuyer(singleUser)}
                   htmlFor="confirmation modal"
                   className="btn rounded-none px-10 bg-red-800 "
                 >
