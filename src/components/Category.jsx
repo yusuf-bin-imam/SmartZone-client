@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import CategoryDevices from "./CategoryDevices";
+import { Link } from "react-router-dom";
 
 const Category = ({ categories }) => {
   // console.log(categories);
+
   return (
     <div className="" id="Brand">
       <section
@@ -35,6 +37,18 @@ const Category = ({ categories }) => {
             {categories?.map((category) => (
               <CategoryDevices key={category?.categoryId} category={category} />
             ))}
+            {/* <div>
+              <Link to={`/allProducts`}>
+                <div className="border-2 hover:border-[#1b3764]   mt-10 w-60   transition-all hover:scale-110 py-6 rounded">
+                  <p
+                    id="title"
+                    className="font-bold mx-auto  text-xl text-black  "
+                  >
+                    All
+                  </p>
+                </div>
+              </Link>
+            </div> */}
           </div>
         </div>
       </section>

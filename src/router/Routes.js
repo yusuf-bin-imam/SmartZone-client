@@ -21,6 +21,8 @@ import Faq from "../components/Faq";
 import Contact from "../components/Contact";
 import MyProfile from "../components/MyProfile";
 import Dashboard from "../components/Dashboard";
+import AllProducts from "../components/AllProducts";
+import Review from "../components/Review";
 
 const router = createBrowserRouter([
   {
@@ -41,8 +43,16 @@ const router = createBrowserRouter([
       { path: "/myProfile", element: <MyProfile /> },
       { path: "/faq", element: <Faq /> },
       {
+        path: "/giveFeedback",
+        element: <Review />,
+      },
+      {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/allProducts",
+        element: <AllProducts />,
       },
       {
         path: "/products/:brand",

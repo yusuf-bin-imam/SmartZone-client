@@ -63,6 +63,9 @@ const Header = () => {
           <NavLink style={navStyle} to={"/blog"}>
             Blogs
           </NavLink>
+          <NavLink style={navStyle} to={"/giveFeedback"}>
+            Feedback
+          </NavLink>
           <NavLink style={navStyle} to={"/contact"}>
             Contact
           </NavLink>

@@ -41,12 +41,12 @@ const DasgboardLayout = () => {
           <div className="drawer-content">
             <Outlet />
           </div>
-          <div className="drawer-side ">
+          <div className="drawer-side bg-sky-100">
             <label
               htmlFor="dashboard-drawer"
               className="drawer-overlay"
             ></label>
-            <ul className="menu p-4 w-64 mt-4 text-base-content">
+            <ul className="menu  p-4 w-64 mt-4 text-base-content">
               {/* {!isAdmin && !isSeller && (
                 <>
                   <li>

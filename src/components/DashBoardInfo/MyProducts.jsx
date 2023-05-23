@@ -82,7 +82,7 @@ const MyProducts = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, i) => (
+            {products?.map((product, i) => (
               // console.log(product)
               <tr key={product._id}>
                 <td>
@@ -119,6 +119,13 @@ const MyProducts = () => {
                 </td>
               </tr>
             ))}
+            {products.length === 0 && (
+              <>
+                <p className="font-bold text-4xl  m-40">
+                  You do not have any products
+                </p>
+              </>
+            )}
           </tbody>
         </table>
       </div>

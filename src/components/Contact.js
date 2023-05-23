@@ -26,9 +26,17 @@ const Contact = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
-          toast.success("Message sent successfully");
-          navigate("/");
+          if (user?.uid) {
+            // console.log(result.text);
+            toast.success("Message sent successfully");
+            navigate("/");
+          } else {
+            toast.error("kindly log in first");
+            navigate("/login");
+          }
+          // console.log(result.text);
+          // toast.success("Message sent successfully");
+          // navigate("/");
         },
         (error) => {
           console.log(error.text);

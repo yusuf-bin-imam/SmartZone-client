@@ -16,7 +16,7 @@ const auth = getAuth(app);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [logUser, setlogUser] = useState({});
+  const [logUser, setLogUser] = useState({});
   const [loading, setLoading] = useState(true);
 
   // create user
@@ -35,10 +35,11 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     fetch(`https://smartzone-server.onrender.com/users/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setlogUser(data));
+      .then((response) => response.json())
+      .then((data) => setLogUser(data));
   }, [user?.email]);
-  console.log(user?.email);
+
+  // console.log(user?.email);
   const providerLogin = (provider) => {
     return signInWithPopup(auth, provider);
   };

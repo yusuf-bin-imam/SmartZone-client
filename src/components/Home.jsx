@@ -3,6 +3,9 @@ import About from "./About";
 import Category from "./Category";
 import Hero from "./Hero";
 import Faq from "./Faq";
+import Contact from "./Contact";
+import Review from "./Review";
+import UserFeedbacks from "./UserFeedbacks";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -21,7 +24,9 @@ const Home = () => {
       <Category categories={categories} />
       <Faq />
       <About />
-      {/* <Contact /> */}
+      <Review />
+      <UserFeedbacks />
+      <Contact />
     </div>
   );
 };

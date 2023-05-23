@@ -8,7 +8,7 @@ import { TiLocation } from "react-icons/ti";
 import { TbCurrencyTaka } from "react-icons/tb";
 
 const Product = ({ product, setDevice }) => {
-  console.log("product ta hoccccccccccccc", product);
+  // console.log("product ta hoccccccccccccc", product);
   const navigate = useNavigate();
   const { user } = useContext(authContext);
 

@@ -62,7 +62,7 @@ const AddAProduct = () => {
             .then((result) => {
               console.log(result);
               reset();
-              toast.success("Inserted product successfully ✅");
+              toast.success("Product Inserted");
             })
             .catch((e) => {
               console.log(e);

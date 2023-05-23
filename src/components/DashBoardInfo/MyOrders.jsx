@@ -77,6 +77,13 @@ const MyOrders = () => {
                   </th>
                 </tr>
               ))}
+            {bookings.length === 0 && (
+              <>
+                <p className="font-bold text-4xl  m-40">
+                  You do not have orders
+                </p>
+              </>
+            )}
           </tbody>
         </table>
       </div>
