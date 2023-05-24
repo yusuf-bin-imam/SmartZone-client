@@ -1,12 +1,11 @@
-'SmartZone' a Mobile reselling website....
+SmartZone : A website for selling used smartphones
 
 Key features :
 
-    1 Built with Reactjs,
-    2. Used tailwind css, daisyui, hiper ui,tailblocks,merakiuii, aos and also use .. Firebase authentication, Node,
-        Express, mongodb
-    3. Admin can verify and delete buyer and seller users
-    4. Users can buy product and can see all orders ob dashboard,
-    5. Anyone can sell their old phone, also can see the products offered for sale and delete,
+    1. The AOS animation library is used to provide a fluid browsing experience.
+    2. Used tailwind CSS, daisyUI, hyperUI, tailblocks, as well as Node, ExpressJS, Firebase authentication, and MongoDB.
+    3. Administrators have the ability to deactivate both buyers and sellers and verify the seller.
+    4. Customers can purchase products and view all of their orders on the dashboard.
+    5. Anyone can sell their used phone and view the products that are being offered for sale.
 
-      website link:
+    Live Link: https://smartzone-bb172.web.app/
