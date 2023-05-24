@@ -23,6 +23,7 @@ import MyProfile from "../components/MyProfile";
 import Dashboard from "../components/Dashboard";
 import AllProducts from "../components/AllProducts";
 import Review from "../components/Review";
+import AdminProduct from "../components/AdminProduct";
 
 const router = createBrowserRouter([
   {
@@ -49,10 +50,6 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
-      },
-      {
-        path: "/allProducts",
-        element: <AllProducts />,
       },
       {
         path: "/products/:brand",
@@ -108,6 +105,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <AllSellers />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/totalProducts",
+        element: (
+          <AdminRoute>
+            <AllProducts />
           </AdminRoute>
         ),
       },

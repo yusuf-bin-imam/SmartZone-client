@@ -8,7 +8,7 @@ const useAdmin = (email) => {
       fetch(`https://smartzone-server.onrender.com/users/admin/${email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           setisAdmin(data.isAdmin);
           setisAdminLoading(false);
         });

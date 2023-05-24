@@ -49,13 +49,13 @@ const Contact = () => {
     <div>
       <div className=" max-w-screen-xl mx-auto">
         <section id="contact">
-          <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full mb-12">
+          <div className="container px-5 py-24 mx-auto">
+            <div className="flex flex-col text-center w-full mb-12">
               <h1
-                id="title"
                 data-aos="fade-down"
                 data-aos-duration="1500"
-                class="sm:text-3xl text-3xl font-bold title-font mb-2"
+                id="title"
+                className="mt-5  text-4xl font-bold  text-[#1b3764] mb-2"
               >
                 Contact
               </h1>
@@ -63,7 +63,7 @@ const Contact = () => {
                 data-aos="fade-down"
                 data-aos-duration="1500"
                 id="txt"
-                class="lg:w-2/3 mx-auto font-bold text-xl "
+                className="lg:w-2/3 mx-auto font-bold text-xl "
               >
                 Reach Us for Support or Inquiries
               </p>
@@ -83,9 +83,9 @@ const Contact = () => {
                 <div
                   // data-aos="fade-left"
                   // data-aos-duration="1500"
-                  class="mt-0 lg:mt-40 mx-auto"
+                  className="mt-0 lg:mt-40 mx-auto"
                 >
-                  <div class="space-y-3">
+                  <div className="space-y-3">
                     <div>
                       <input
                         type="text"
@@ -94,7 +94,7 @@ const Contact = () => {
                         name="user_name"
                         defaultValue={user?.displayName}
                         required
-                        class="w-full border-black border-2 py-3 px-3 rounded"
+                        className="w-full border-black border-2 py-3 px-3 rounded"
                       />
                     </div>
                     <div>
@@ -105,7 +105,7 @@ const Contact = () => {
                         name="user_email"
                         defaultValue={user?.email}
                         required
-                        class="w-full border-black border-2 py-3 px-3 rounded"
+                        className="w-full border-black border-2 py-3 px-3 rounded"
                       />
                     </div>
 
@@ -115,7 +115,7 @@ const Contact = () => {
                         name="message"
                         required
                         placeholder="Additional details"
-                        class="w-full border-black border-2 py-5 px-3 rounded"
+                        className="w-full border-black border-2 py-5 px-3 rounded"
                       ></textarea>
                     </div>
                   </div>

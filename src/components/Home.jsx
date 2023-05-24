@@ -6,6 +6,7 @@ import Faq from "./Faq";
 import Contact from "./Contact";
 import Review from "./Review";
 import UserFeedbacks from "./UserFeedbacks";
+// import AllProducts from "./AllProducts";
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -16,7 +17,7 @@ const Home = () => {
       .then((data) => setCategories(data))
       .catch((e) => console.error(e));
   }, []);
-  console.log(categories);
+  // console.log(categories);
 
   return (
     <div className="space-y-5">
@@ -27,6 +28,7 @@ const Home = () => {
       <Review />
       <UserFeedbacks />
       <Contact />
+      {/* <AllProducts /> */}
     </div>
   );
 };

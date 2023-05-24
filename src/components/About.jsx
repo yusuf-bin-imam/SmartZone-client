@@ -9,7 +9,8 @@ const About = () => {
       <h5
         data-aos="fade-right"
         data-aos-duration="3000"
-        className="mb-2  text-4xl text[#1b3764] font-extrabold leading-none md:pl-2"
+        id="title"
+        className="mt-5  text-4xl font-bold  text-[#1b3764] mb-2"
       >
         Why you choose
         <br className="hidden md:block" />

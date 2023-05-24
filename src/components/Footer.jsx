@@ -1,26 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { authContext } from "../context/AuthProvider";
 
 const Footer = () => {
+  const { user } = useContext(authContext);
   return (
     <div>
-      <footer aria-label="Site Footer" className="bg-black ">
+      <footer aria-label="Site Footer" className="bg-[#1b3764] ">
         <div className="max-w-screen-xl px-4 pt-16 pb-8 mx-auto sm:px-6 lg:px-8 lg:pt-12">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-teal-900 sm:text-5xl">
+            <h2 className="text-3xl font-extrabold text-white sm:text-5xl">
               SmartZone
             </h2>
 
-            <p className="max-w-sm mx-auto font-bold mt-4 text-blue-500">
-              Trusted , reliable & best service warrenty ever
+            <p className=" mx-auto font-bold mt-2 text-white">
+              Your Trusted Source for Premium Mobile Devices
             </p>
 
-            <Link
-              href="#"
-              className="inline-block px-12 font-bold py-3 mt-8 text-sm  text-indigo-600 border border-indigo-600 rounded-full hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
-            >
-              Get Started
-            </Link>
+            {user?.uid && (
+              <>
+                <a href="#brand">
+                  <button className=" rounded-full py-3 mt-4  w-40 hover:bg-none  font-bold bg-white text-[#1b3764]">
+                    Get Started
+                  </button>
+                </a>
+              </>
+            )}
+            {!user && (
+              <>
+                <Link to={"/login"}>
+                  <button className=" rounded-full py-3 mt-4  w-40 hover:bg-none  font-bold bg-white text-[#1b3764]">
+                    Get Started
+                  </button>
+                </Link>
+              </>
+            )}
           </div>
 
           <div className="pt-8 mt-16 border-t border-gray-100 sm:flex sm:items-center sm:justify-between lg:mt-24">
@@ -29,7 +43,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-500 transition hover:opacity-75"
+                    className="text-white transition hover:opacity-75"
                   >
                     Terms & Conditions
                   </a>
@@ -38,7 +52,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-500 transition hover:opacity-75"
+                    className="text-white transition hover:opacity-75"
                   >
                     Privacy Policy
                   </a>
@@ -47,7 +61,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-500 transition hover:opacity-75"
+                    className="text-white transition hover:opacity-75"
                   >
                     Cookies
                   </a>
@@ -61,7 +75,7 @@ const Footer = () => {
                   href="/"
                   rel="noreferrer"
                   target="_blank"
-                  className="text-gray-700 transition hover:opacity-75"
+                  className="text-white transition hover:opacity-75"
                 >
                   <span className="sr-only">Facebook</span>
 
@@ -85,7 +99,7 @@ const Footer = () => {
                   href="/"
                   rel="noreferrer"
                   target="_blank"
-                  className="text-gray-700 transition hover:opacity-75"
+                  className="text-white transition hover:opacity-75"
                 >
                   <span className="sr-only">Instagram</span>
 
@@ -109,7 +123,7 @@ const Footer = () => {
                   href="/"
                   rel="noreferrer"
                   target="_blank"
-                  className="text-gray-700 transition hover:opacity-75"
+                  className="text-white transition hover:opacity-75"
                 >
                   <span className="sr-only">Twitter</span>
 
@@ -129,7 +143,7 @@ const Footer = () => {
                   href="/"
                   rel="noreferrer"
                   target="_blank"
-                  className="text-gray-700 transition hover:opacity-75"
+                  className="text-white transition hover:opacity-75"
                 >
                   <span className="sr-only">GitHub</span>
 
@@ -153,7 +167,7 @@ const Footer = () => {
                   href="/"
                   rel="noreferrer"
                   target="_blank"
-                  className="text-gray-700 transition hover:opacity-75"
+                  className="text-white transition hover:opacity-75"
                 >
                   <span className="sr-only">Dribbble</span>
 

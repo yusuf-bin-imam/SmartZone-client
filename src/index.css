@@ -12,19 +12,15 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace; */
+  font-family: "Poppins", sans-serif;
 }
 #title {
   font-family: "Noto Serif", serif;
 }
-#text {
-  font-family: "Sofia Sans", sans-serif;
-}
-#title-txt {
-  font-family: "Titillium Web", sans-serif;
-}
 
 #txt {
   font-family: "Poppins", sans-serif;
+  /* font-family: "Titillium Web", sans-serif; */
 }

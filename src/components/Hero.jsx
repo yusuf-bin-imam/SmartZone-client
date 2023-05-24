@@ -30,12 +30,12 @@ const Hero = () => {
                   Popular Brands
                 </button>
               </a>
-              <a href="#contact">
+              <a href="#userFeedbacks">
                 <button
                   type="button"
                   className="px-8 py-3 m-2 text-lg border-2 border-gray-300 dark:text-gray-900"
                 >
-                  Contact Us
+                  Feedbacks
                 </button>
               </a>
               {/* <Link to={"/contact"}>

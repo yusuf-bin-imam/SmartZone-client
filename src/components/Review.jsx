@@ -23,7 +23,7 @@ const Review = () => {
       feedback,
     };
     // console.log(reviewInfo);
-    fetch(`http://localhost:5000/feedbacks`, {
+    fetch(`https://smartzone-server.onrender.com/feedbacks`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -49,13 +49,13 @@ const Review = () => {
       <div>
         <div className=" max-w-screen-xl mx-auto">
           <section>
-            <div class="container px-5 py-24 mx-auto">
-              <div class="flex flex-col text-center w-full mb-12">
+            <div className="container px-5 py-24 mx-auto">
+              <div className="flex flex-col text-center w-full mb-12">
                 <h1
-                  id="title"
                   data-aos="fade-down"
                   data-aos-duration="1500"
-                  class="sm:text-3xl text-3xl font-bold title-font mb-2"
+                  id="title"
+                  className="mt-5  text-4xl font-bold  text-[#1b3764] mb-2"
                 >
                   Give Feedback
                 </h1>
@@ -63,7 +63,7 @@ const Review = () => {
                   data-aos="fade-down"
                   data-aos-duration="1500"
                   id="txt"
-                  class="lg:w-2/3 mx-auto font-bold text-xl "
+                  className="lg:w-2/3 mx-auto font-bold text-xl "
                 >
                   Share your experience and let us exceed your expectations
                 </p>
@@ -83,9 +83,9 @@ const Review = () => {
                   <div
                     // data-aos="fade-left"
                     // data-aos-duration="1500"
-                    class="mt-0 lg:mt-40 mx-auto"
+                    className="mt-0 lg:mt-40 mx-auto"
                   >
-                    <div class="space-y-3">
+                    <div className="space-y-3">
                       <div>
                         <input
                           type="text"
@@ -95,7 +95,7 @@ const Review = () => {
                           readOnly
                           defaultValue={user?.displayName}
                           required
-                          class="w-full border-black border-2 py-3 px-3 rounded"
+                          className="w-full border-black border-2 py-3 px-3 rounded"
                         />
                       </div>
                       <div>
@@ -107,7 +107,7 @@ const Review = () => {
                           readOnly
                           defaultValue={user?.email}
                           required
-                          class="w-full border-black border-2 py-3 px-3 rounded"
+                          className="w-full border-black border-2 py-3 px-3 rounded"
                         />
                       </div>
                       <div>
@@ -119,7 +119,7 @@ const Review = () => {
                           readOnly
                           defaultValue={user?.photoURL}
                           required
-                          class="w-full border-black border-2 py-3 px-3 rounded"
+                          className="w-full border-black border-2 py-3 px-3 rounded"
                         />
                       </div>
 
@@ -127,9 +127,10 @@ const Review = () => {
                         <textarea
                           id="inputTxt"
                           name="message"
+                          maxLength="172"
                           required
                           placeholder="Additional details"
-                          class="w-full border-black border-2 py-5 px-3 rounded"
+                          className="w-full border-black border-2 py-4 px-3 rounded"
                         ></textarea>
                       </div>
                     </div>

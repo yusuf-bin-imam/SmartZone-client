@@ -21,7 +21,7 @@ import { BsCartCheckFill, BsDatabaseFillAdd } from "react-icons/bs";
 
 const Header = () => {
   const { user, logOut } = useContext(authContext);
-  console.log(user);
+  // console.log(user);
 
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);

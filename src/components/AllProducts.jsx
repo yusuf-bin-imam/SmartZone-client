@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import AdminProduct from "./AdminProduct";
 
 const AllProducts = () => {
-  const [allProducts, setProduct] = useState({});
+  const [Products, setProduct] = useState([]);
 
   useEffect(() => {
     fetch(`https://smartzone-server.onrender.com/products`)
@@ -10,8 +11,10 @@ const AllProducts = () => {
   }, []);
 
   return (
-    <div>
-      {allProducts?.map((singleProduct, i) => console.log(singleProduct))}
+    <div className="grid m-20 grid-cols-1 lg:grid-cols-3 gap-3">
+      {Products?.map((product, i) => (
+        <AdminProduct key={i} product={product} />
+      ))}
     </div>
   );
 };

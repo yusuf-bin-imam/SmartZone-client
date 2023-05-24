@@ -34,7 +34,7 @@ const MyOrders = () => {
       <h1 id="title" className="text-4xl font-bold  text-[#1b3764] m-2">
         My Orders
       </h1>
-      {/* <div class=" w-20 mx-auto  border-b-8 border-yellow-300 "></div> */}
+      {/* <div className=" w-20 mx-auto  border-b-8 border-yellow-300 "></div> */}
 
       <p id="txt" className="font-bold ">
         Verify your order before making payment

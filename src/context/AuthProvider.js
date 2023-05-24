@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     fetch(`https://smartzone-server.onrender.com/users/${user?.email}`)
       .then((response) => response.json())
-      .then((data) => setLogUser(data));
+      .then((result) => setLogUser(result));
   }, [user?.email]);
 
   // console.log(user?.email);

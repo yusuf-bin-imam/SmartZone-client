@@ -5,29 +5,33 @@ const UserFeedbacks = () => {
   const [allFeedbacks, setFeedback] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/feedbacks`)
+    fetch(`https://smartzone-server.onrender.com/feedbacks`)
       .then((res) => res.json())
       .then((data) => setFeedback(data));
   }, []);
   return (
     <div>
-      <div class="min-w-screen min-h-screen bg-gray-50 flex items-center justify-center py-5">
-        <div class="w-full bg-white border-t border-b border-gray-200 px-5 py-16 md:py-24 text-gray-800">
-          <div class="w-full max-w-6xl mx-auto">
-            <div class="text-center max-w-xl mx-auto">
-              <h1 class="text-6xl md:text-7xl font-bold mb-5 text-gray-600">
-                What people are saying.
+      <div
+        id="userFeedbacks"
+        className="min-w-screen min-h-screen  flex items-center justify-center py-5"
+      >
+        <div className="w-full bg-white  px-5 py-16 md:py-24 text-gray-800">
+          <div className="w-full max-w-6xl mx-auto">
+            <div className="text-center max-w-xl mx-auto">
+              <h1
+                id="title"
+                className="mt-5  text-4xl font-bold  text-[#1b3764] mb-2"
+              >
+                Users Feedbacks
               </h1>
-              <h3 class="text-xl mb-5 font-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <h3 id="txt" className="font-bold">
+                Inspiring Success Stories from Our Customers
               </h3>
             </div>
-            <div class="-mx-3 md:flex items-start">
-              <div class="px-3 md:w-1/3">
-                {allFeedbacks?.map((feedback) => (
-                  <Feedback UserFeedback={feedback} />
-                ))}
-              </div>
+            <div className="grid gap-3 lg:grid-cols-3 grid-cols-1 mt-20">
+              {allFeedbacks?.map((feedback, i) => (
+                <Feedback key={i} UserFeedback={feedback} />
+              ))}
             </div>
           </div>
         </div>

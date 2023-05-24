@@ -12,6 +12,7 @@ import {
   BsFillHouseAddFill,
 } from "react-icons/bs";
 import { FaBuysellads, FaProductHunt } from "react-icons/fa";
+import { BiBorderAll } from "react-icons/bi";
 
 const DasgboardLayout = () => {
   const { user, logUser } = useContext(authContext);
@@ -186,6 +187,17 @@ const DasgboardLayout = () => {
                     >
                       <FaBuysellads />
                       All Buyers
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      id="title"
+                      className="rounded-none mt-2 font-bold"
+                      style={navStyle}
+                      to={"/dashboard/totalProducts"}
+                    >
+                      <BiBorderAll />
+                      Total Products
                     </NavLink>
                   </li>
                 </>
