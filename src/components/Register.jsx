@@ -11,6 +11,7 @@ import { toast } from "react-hot-toast";
 const Register = () => {
   const { createUser, updateUserProfile, providerLogin } =
     useContext(authContext);
+  const [loading, setLoading] = useState(false);
 
   const [createdUserEmail, setCreatedUserEmail] = useState("");
   const [token] = useToken(createdUserEmail);
@@ -21,6 +22,7 @@ const Register = () => {
   }
 
   const handleRegister = (event) => {
+    setLoading(true);
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -65,7 +67,9 @@ const Register = () => {
   const updateUserDetails = (name, photoURL) => {
     updateUserProfile(name, photoURL)
       .then(() => {
-        toast.success("sign up successfully");
+        toast.success("Sign up successfully");
+        setLoading(false);
+        navigate("/");
         // alert("successfully update profile");
       })
       .catch((e) => console.log(e));
@@ -146,6 +150,7 @@ const Register = () => {
                     type="password"
                     name="password"
                     required
+                    minlength="6"
                     id="name"
                     placeholder="Enter your password"
                     className="block w-full px-5  py-3 border mb-5 rounded border-[#1b3764]"
@@ -185,9 +190,103 @@ const Register = () => {
                 <div className="flex flex-col mt-4 lg:space-y-2">
                   <button
                     type="submit"
+                    disabled={loading}
                     className="btn btn-outline bg-[#1b3764] text-white w-1/2 mx-auto rounded-none"
                   >
-                    Sign up
+                    {loading ? (
+                      <>
+                        <div
+                          aria-label="Loading..."
+                          role="status"
+                          class="flex items-center space-x-2"
+                        >
+                          <svg
+                            class="h-6 w-6 animate-spin stroke-gray-500"
+                            viewBox="0 0 256 256"
+                          >
+                            <line
+                              x1="128"
+                              y1="32"
+                              x2="128"
+                              y2="64"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="24"
+                            ></line>
+                            <line
+                              x1="195.9"
+                              y1="60.1"
+                              x2="173.3"
+                              y2="82.7"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="24"
+                            ></line>
+                            <line
+                              x1="224"
+                              y1="128"
+                              x2="192"
+                              y2="128"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="24"
+                            ></line>
+                            <line
+                              x1="195.9"
+                              y1="195.9"
+                              x2="173.3"
+                              y2="173.3"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="24"
+                            ></line>
+                            <line
+                              x1="128"
+                              y1="224"
+                              x2="128"
+                              y2="192"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="24"
+                            ></line>
+                            <line
+                              x1="60.1"
+                              y1="195.9"
+                              x2="82.7"
+                              y2="173.3"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="24"
+                            ></line>
+                            <line
+                              x1="32"
+                              y1="128"
+                              x2="64"
+                              y2="128"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="24"
+                            ></line>
+                            <line
+                              x1="60.1"
+                              y1="60.1"
+                              x2="82.7"
+                              y2="82.7"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="24"
+                            ></line>
+                          </svg>
+                          <span class="text-xs font-medium text-gray-500">
+                            loading...
+                          </span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <p>sign Up</p>
+                      </>
+                    )}
                   </button>{" "}
                   <p className="text-sm text-center font-semibold mt-2 pt-1 mb-0">
                     Already have an Account ?

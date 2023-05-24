@@ -18,6 +18,7 @@ import useSeller from "../hooks/useSeller";
 import { FaBuysellads, FaProductHunt } from "react-icons/fa";
 import { SiSellfy } from "react-icons/si";
 import { BsCartCheckFill, BsDatabaseFillAdd } from "react-icons/bs";
+import logo from "../../src/assets/smartphone.png";
 
 const Header = () => {
   const { user, logOut } = useContext(authContext);
@@ -83,15 +84,108 @@ const Header = () => {
           </NavLink>
         </>
       )}
-      {/* <NavLink style={navStyle} to={"/"}>
-        Home
-      </NavLink>
-      <NavLink style={navStyle} to={"/faq"}>
-        Faq
-      </NavLink>
-      <NavLink style={navStyle} to={"/blog"}>
-        Blogs
-      </NavLink> */}
+      {/* {user?.uid && (
+        <div className="dropdown block lg:hidden dropdown-hover">
+          <label tabIndex={0} className="btn  bg-yellow-500 rounded m-1">
+            Dashboard
+          </label>
+          <ul
+            tabIndex={0}
+            className="dropdown-content  menu p-2 -ml-14 shadow bg-[#1b3764] font-bold text-white rounded-box w-52"
+          >
+            {!isAdmin && !isSeller && (
+              <>
+                <li>
+                  <NavLink
+                    id="title"
+                    className="rounded-none font-bold"
+                    style={navStyle}
+                    to={"/dashboard/myOrders"}
+                  >
+                    <BsCartCheckFill />
+                    My Orders
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {isSeller && (
+              <>
+                <li>
+                  <NavLink
+                    id="title"
+                    className="rounded-none font-bold"
+                    style={navStyle}
+                    to={"/dashboard/myOrders"}
+                  >
+                    <BsCartCheckFill />
+                    My Orders
+                  </NavLink>
+                </li>
+                <li className="  mt-2 ">
+                  <NavLink
+                    id="title"
+                    className="rounded-none font-bold"
+                    style={navStyle}
+                    to={"/dashboard/myProducts"}
+                  >
+                    <FaProductHunt />
+                    My Products
+                  </NavLink>
+                </li>{" "}
+                <li className="mt-2">
+                  <NavLink
+                    id="title"
+                    className="rounded-none font-bold"
+                    style={navStyle}
+                    to={"/dashboard/addProduct"}
+                  >
+                    <BsDatabaseFillAdd />
+                    Add Product
+                  </NavLink>
+                </li>
+              </>
+            )}
+
+            {isAdmin && (
+              <>
+                <li>
+                  <NavLink
+                    id="title"
+                    className="rounded-none font-bold"
+                    style={navStyle}
+                    to={"/dashboard/myOrders"}
+                  >
+                    <BsCartCheckFill />
+                    My Orders
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    id="title"
+                    className="rounded-none mt-2 font-bold"
+                    style={navStyle}
+                    to={"/dashboard/allSeller"}
+                  >
+                    <SiSellfy />
+                    All Sellers
+                  </NavLink>
+                </li>{" "}
+                <li>
+                  <NavLink
+                    id="title"
+                    className="rounded-none mt-2 font-bold"
+                    style={navStyle}
+                    to={"/dashboard/allBuyers"}
+                  >
+                    <FaBuysellads />
+                    All Buyers
+                  </NavLink>
+                </li>
+              </>
+            )}
+          </ul>
+        </div>
+      )} */}
     </nav>
   );
 
@@ -105,11 +199,12 @@ const Header = () => {
           to={"/"}
           className="mr-4 flex  cursor-pointer py-1.5 font-bold text-4xl"
         >
-          <img
+          <img className="  w-14 h-14 -mt-1" src={logo} alt="" />
+          {/* <img
             className="w-12 h-12 -mt-1"
             src="https://www.shareicon.net/data/128x128/2015/09/25/107069_apple_512x512.png"
             alt=""
-          />
+          /> */}
           <span className="text-4xl">SmartZone</span>
         </Link>
         <div className="hidden lg:block">{navList}</div>
@@ -139,7 +234,7 @@ const Header = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content mt-10  menu p-2 shadow bg-[#1b3764] rounded-box w-52"
+                  className="dropdown-content mt-10 -ml-2 menu p-2 shadow bg-[#1b3764] rounded-box w-52"
                 >
                   <li>
                     <NavLink to={"/myProfile"}>Profile</NavLink>

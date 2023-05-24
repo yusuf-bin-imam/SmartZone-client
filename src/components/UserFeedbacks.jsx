@@ -13,9 +13,9 @@ const UserFeedbacks = () => {
     <div>
       <div
         id="userFeedbacks"
-        className="min-w-screen min-h-screen  flex items-center justify-center py-5"
+        className="min-w-screen min-h-screen  flex items-center justify-center "
       >
-        <div className="w-full bg-white  px-5 py-16 md:py-24 text-gray-800">
+        <div className="w-full bg-white  px-5  text-gray-800">
           <div className="w-full max-w-6xl mx-auto">
             <div className="text-center max-w-xl mx-auto">
               <h1
