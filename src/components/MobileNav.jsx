@@ -17,8 +17,8 @@ const MobileNav = () => {
 
   return (
     <div>
-      <header class=" text-white  bg-[#1b3764] block lg:hidden body-font">
-        <div class="container mx-auto flex justify-around flex-wrap p-5   items-center">
+      <header class=" text-white   bg-[#1b3764] block lg:hidden body-font">
+        <div class="container mx-auto flex  flex-wrap p-5   items-center">
           <Link
             to={"/"}
             className="mr-4 flex  cursor-pointer py-1.5 font-bold text-4xl"
@@ -27,40 +27,41 @@ const MobileNav = () => {
 
             <span className="text-4xl">SmartZone</span>
           </Link>
-          {user?.uid && (
-            <>
-              <img
-                className="w-12 h-12 avatar mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
-                alt="userImage"
-                src={user?.photoURL}
-              />
-            </>
-          )}
-          {!user && (
-            <>
-              <div className="dropdown  dropdown-hover">
-                <label tabIndex={0}>
-                  <img
-                    className="w-12 mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
-                    alt="NoUser"
-                    src={noUser}
-                  />
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content menu p-2 -ml-32 shadow bg-[#1b3764] rounded-box w-52"
-                >
-                  <li>
-                    <NavLink to={"/login"}>Sign In</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={"/register"}>Sign Up</NavLink>
-                  </li>
-                </ul>
-              </div>
-            </>
-          )}
-          <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center font-bold justify-center">
+          {/* {user?.uid && (
+              <>
+                <img
+                  className="w-12 h-12 avatar mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+                  alt="userImage"
+                  src={user?.photoURL}
+                />
+              </>
+            )}
+            {!user && (
+              <>
+                <div className="dropdown  dropdown-hover">
+                  <label tabIndex={0}>
+                    <img
+                      className="w-12 mr-3 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+                      alt="NoUser"
+                      src={noUser}
+                    />
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu p-2 -ml-32 shadow bg-[#1b3764] rounded-box w-52"
+                  >
+                    <li>
+                      <NavLink to={"/login"}>Sign In</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/register"}>Sign Up</NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </>
+            )} */}
+
+          <nav class=" flex flex-wrap items-center font-bold justify-center">
             {user?.uid ? (
               <>
                 <NavLink className="mr-2" to={"/"}>
@@ -211,6 +212,10 @@ const MobileNav = () => {
                 <NavLink className="mr-2" to={"/blog"}>
                   Blogs
                 </NavLink>
+                <NavLink className="mr-2" to={"/register"}>
+                  Sign Up
+                </NavLink>{" "}
+                <NavLink to={"/login"}>Sign In</NavLink>
               </>
             )}
           </nav>
