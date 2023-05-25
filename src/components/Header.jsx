@@ -192,7 +192,7 @@ const Header = () => {
   return (
     <Navbar
       id="text"
-      className="mx-auto text-white  bg-[#1b3764]    px-4 border-none lg:px-8 rounded-none lg:py-8"
+      className="mx-auto lg:block hidden text-white  bg-[#1b3764]    px-4 border-none lg:px-8 rounded-none lg:py-8"
     >
       <div className="container mx-auto flex items-center justify-around text-blue-gray-900">
         <Link
@@ -200,11 +200,7 @@ const Header = () => {
           className="mr-4 flex  cursor-pointer py-1.5 font-bold text-4xl"
         >
           <img className="  w-14 h-14 -mt-1" src={logo} alt="" />
-          {/* <img
-            className="w-12 h-12 -mt-1"
-            src="https://www.shareicon.net/data/128x128/2015/09/25/107069_apple_512x512.png"
-            alt=""
-          /> */}
+
           <span className="text-4xl">SmartZone</span>
         </Link>
         <div className="hidden lg:block">{navList}</div>

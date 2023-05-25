@@ -29,38 +29,9 @@ const Product = ({ product, setDevice }) => {
   } = product;
   return (
     <div>
-      {/* <div
-        data-aos="fade-up"
-        className=" transition-shadow duration-300  bg-white rounded shadow-sm"
-      >
-        <img src={image} className=" w-full h-64" alt="" />
-        <div className="p-5 space-y-2 border border-t-0">
-          <p className="font-bold">{brand}</p>
-          <h1 id="title" className="font-bold text-start text-2xl">
-            {productName}
-          </h1>
-          <h1 className="font-bold text-start">{sellerNumber}</h1>
-          <div className="text-start font-bold">
-            {yearOfUse}
-            <p className="mb-2 flex gap-2 mt-2 justify-between font-bold">
-              {resalePrice}
-              <span className="line-through">{orginalPrice}</span>
-            </p>
-            <p className="text-start">{condition.slice(0, 40)}...</p>
-          </div>
-          <label
-            onClick={handleBookNow}
-            htmlFor="Booking-modal"
-            className="btn  w-2/3 btn-outline text-white font-bold rounded-none bg-[#1b3764]"
-          >
-            Book now
-          </label>
-        </div>
-      </div> */}
-
       <div className="max-w-2xl mx-auto">
-        <div className="bg-white h-[500px] shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
-          <div className="">
+        <div className="bg-white h-[500px] shadow-md border border-gray-200 rounded-lg max-w-sm">
+          <div className="border-b border-red-200">
             <img
               className="rounded-t-lg w-[383px] h-[255px] "
               src={image}
@@ -68,8 +39,8 @@ const Product = ({ product, setDevice }) => {
             />
           </div>
 
-          <div className="p-5">
-            <h5 className="text-gray-900 text-start font-bold text-2xl tracking-tight mb-2 dark:text-white">
+          <div className="p-5 pt-2 ">
+            <h5 className="text-gray-900 text-start font-bold text-2xl tracking-tight mb-2 ">
               {productName}
             </h5>
 

@@ -13,6 +13,7 @@ import {
 } from "react-icons/bs";
 import { FaBuysellads, FaProductHunt } from "react-icons/fa";
 import { BiBorderAll } from "react-icons/bi";
+import MobileNav from "./MobileNav";
 
 const DasgboardLayout = () => {
   const { user, logUser } = useContext(authContext);
@@ -32,6 +33,7 @@ const DasgboardLayout = () => {
     <div>
       {/* <Navigation /> */}
       <Header />
+      <MobileNav />
       <div>
         <div className="drawer drawer-mobile">
           <input
