@@ -15,7 +15,7 @@ import AllSellers from "../components/DashBoardInfo/AllSellers";
 import AllBuyers from "../components/DashBoardInfo/AllBuyers";
 import AdminRoute from "./AdminRoute";
 import SellerRoute from "./SellerRoute";
-import Profile from "../components/Profile";
+
 import MyProducts from "../components/DashBoardInfo/MyProducts";
 import Faq from "../components/Faq";
 import Contact from "../components/Contact";

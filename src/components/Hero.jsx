@@ -18,8 +18,7 @@ const Hero = () => {
               id="txt"
               className="mt-6 mb-8 text-lg font-bold sm:mb-12 xl:max-w-3xl dark:text-gray-900"
             >
-              SmartZone is a tech house that provides and receive preowned
-              device to the consumers.
+              SmartZone is a shop that provides pre-owned devices to consumers.
             </p>
             <div className="flex flex-wrap justify-center">
               <a href="#brand">

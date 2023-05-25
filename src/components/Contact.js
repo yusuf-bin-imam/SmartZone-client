@@ -92,6 +92,7 @@ const Contact = () => {
                         id="inputTxt"
                         placeholder="Enter your name"
                         name="user_name"
+                        readOnly
                         defaultValue={user?.displayName}
                         required
                         className="w-full border-black border-2 py-3 px-3 rounded"
@@ -101,6 +102,7 @@ const Contact = () => {
                       <input
                         type="text"
                         id="inputTxt"
+                        readOnly
                         placeholder="Enter your Email"
                         name="user_email"
                         defaultValue={user?.email}

@@ -11,11 +11,11 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../context/AuthProvider";
 import { RxCross2 } from "react-icons/rx";
-
+import { TbLogout } from "react-icons/tb";
 import noUser from "../../src/assets/default avater.png";
 import useAdmin from "../hooks/useAdmin";
 import useSeller from "../hooks/useSeller";
-import { FaBuysellads, FaProductHunt } from "react-icons/fa";
+import { FaBuysellads, FaProductHunt, FaSignOutAlt } from "react-icons/fa";
 import { SiSellfy } from "react-icons/si";
 import { BsCartCheckFill, BsDatabaseFillAdd } from "react-icons/bs";
 import logo from "../../src/assets/smartphone.png";
@@ -234,7 +234,7 @@ const Header = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content mt-10 -ml-2 menu p-2 shadow bg-[#1b3764] rounded-box w-52"
+                  className="dropdown-content font-bold mt-10 -ml-2 menu p-2 shadow bg-[#1b3764] rounded-box w-52"
                 >
                   <li>
                     <NavLink to={"/myProfile"}>Profile</NavLink>
@@ -242,10 +242,10 @@ const Header = () => {
 
                   <li>
                     <button
-                      className=" text-start lg:inline-block"
+                      className=" text-start flex "
                       onClick={handleLogOut}
                     >
-                      LogOut
+                      LogOut <FaSignOutAlt className="text-xl font-bold" />
                     </button>
                   </li>
                 </ul>

@@ -56,7 +56,7 @@ const AllSellers = () => {
   return (
     <div>
       <div className="overflow-x-auto">
-        <h4 id="title" className="mt-5 text-4xl font-bold  text-teal-900 mb-2">
+        <h4 id="title" className="mt-5 text-4xl font-bold  text-[#1b3764] mb-2">
           All Sellers
         </h4>
         <p id="txt" className="font-bold">

@@ -47,7 +47,7 @@ const AllBuyers = () => {
     <div>
       <h6
         id="title"
-        className="mt-5 text-4xl font-bold font-serif text-teal-900 mb-2"
+        className="mt-5 text-4xl font-bold font-serif text-[#1b3764] mb-2"
       >
         All Buyers
       </h6>
@@ -70,15 +70,14 @@ const AllBuyers = () => {
           <tbody key={singleUser?._id}>
             <tr>
               {/* <th>{i + 1}</th> */}
-              <td className="font-bold px-4 justify-center text-center gap-3 flex items-center  ">
-                <p className="font-bold">
+              <td className="font-bold  justify-center  gap-3 flex items-center  text-start ">
+                <div className="font-bold">
                   <p className=" text-start  my-3 uppercase">
                     {singleUser?.name}
                   </p>
                   <p className="text-center  my-3">{singleUser?.email}</p>
-                </p>
+                </div>
               </td>
-
               <td>
                 <label
                   onClick={() => setDltBuyer(singleUser)}

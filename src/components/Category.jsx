@@ -17,7 +17,7 @@ const Category = ({ categories }) => {
             data-aos="fade-down"
             data-aos-duration="1500"
             id="title"
-            className="text-4xl   font-bold text-teal-900"
+            className="text-4xl   font-bold text-[#1b3764]"
           >
             Popular Brands
           </h2>

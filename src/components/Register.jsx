@@ -284,7 +284,7 @@ const Register = () => {
                       </>
                     ) : (
                       <>
-                        <p>sign Up</p>
+                        <p>Sign Up</p>
                       </>
                     )}
                   </button>{" "}

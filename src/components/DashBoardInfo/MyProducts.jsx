@@ -62,9 +62,9 @@ const MyProducts = () => {
       <div className="overflow-x-auto">
         <h6
           id="title"
-          className="mt-5 text-4xl font-bold font-serif text-teal-900 mb-2"
+          className="mt-5 text-4xl font-bold font-serif text-[#1b3764] mb-2"
         >
-          All Products
+          My Products
         </h6>
         <p id="txt" className="font-bold">
           Your Products, Your Success: Unleash the Potentia
@@ -119,13 +119,13 @@ const MyProducts = () => {
                 </td>
               </tr>
             ))}
-            {products.length === 0 && (
+            {/* {products.length === 0 && (
               <>
                 <p className="font-bold text-4xl  m-40">
                   You do not have any products
                 </p>
               </>
-            )}
+            )} */}
           </tbody>
         </table>
       </div>
@@ -138,6 +138,22 @@ const MyProducts = () => {
           modalData={dltProduct}
           cancelDelete={cancelDelete}
         />
+      )}
+      {products.length === 0 && (
+        <>
+          {/* <div className="flex">
+            <lottie-player
+              src="https://assets1.lottiefiles.com/packages/lf20_mawpsliw.json"
+              loop
+              className="w-1/2"
+              speed="1"
+              autoplay
+            ></lottie-player>
+          </div> */}
+          <p className="font-bold mt-20 text-4xl  ">
+            You don't have any products to sell.
+          </p>
+        </>
       )}
     </div>
   );
